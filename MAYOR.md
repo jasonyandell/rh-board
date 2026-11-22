@@ -48,3 +48,14 @@ Start with two or three workers and raise the count only when the board shows wo
 - Never hold a claim nobody is working on. Close the upstream issue and set the thread to `dropped`.
 - Never push to upstream `main`. Our work goes up as PRs from the fork.
 - When a worker is blocked, either reassign the module or submit the packet's ready subset under upstream's partial-submission rules. Do not let one hard module hold 63 finished ones.
+
+## Lessons from the first mayor shift (2026-11-22)
+
+- **Claims.** Upstream allows at most 8 open `Port Pxxxx` claims per contributor and releases a partial packet's claim when its PR merges (PORTING.md, "Release on merge & 8-packet cap"). Every PR, partial or full, says `Closes #N`. At the cap, idle workers wait for merges: `scripts/wait-slot.sh` wakes you when a slot frees.
+- **Pick big packets.** `port.py next` prints a packet's size, not its ready count. `scripts/claim.sh` ranks packets by ready modules computed from the tracker and tries the largest first.
+- **One ship at a time.** `claim`, `ship`, `publish` and `pr` all use the one upstream checkout and switch branches in it. Run them strictly in sequence. Never edit a script while a run of it is in flight: bash reads scripts as it goes.
+- **Audits gate the ship.** `ship.sh` runs both `islattice_audit.lean` (any hit fails) and `reused_audit.lean`. A reused-name hit stops the ship until the mayor confirms the side condition from the declaration's own hypotheses; then re-run with `REUSED_REVIEWED=1`. `records` accepts notes only for patched modules, so `publish.sh` moves audit notes for unchanged modules into the PR body.
+- **Review every worker patch.** Grep the patches for `sorry`, `admit`, `axiom`, `native_decide`, `unsafe`, `implemented_by` and `set_option backward`. Upstream has merged no `backward.*` flag; one Codex patch added one that the plain proof did not need.
+- **Repeat submissions of a packet** need fresh release tags and branches: `TAG_SUFFIX=-b` (then `-c`). `ship.sh` re-applies already-merged member patches before `diff`.
+- **Workers.** Run builds in the foreground: a background build's notification may never reach a subagent. A cold `check` can exceed the 10-minute tool limit; re-running resumes from Lake's cache. New work trees are `cp -cRp` clones of an idle tree, which cost almost no disk.
+- **Codex and Opus 5.5 medium both did the job.** Across nine packets, both workers followed the brief, posted to the board and produced patches that passed review. RD #6 has the numbers.

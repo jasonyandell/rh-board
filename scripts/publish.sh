@@ -1,16 +1,23 @@
 #!/bin/bash
 # usage: publish.sh P0123 ISSUE  (after ship.sh; notes in ~/code/rh/P0123-notes.json)
-set -e
+set -eo pipefail
 P=$1; I=$2; REPO=$HOME/code/rh/alpoge-rh-replay; OUT=$HOME/code/rh/out-$P; TMP=${CLAUDE_JOB_DIR:-/tmp}/tmp
-D=$(date -u +%Y%m%d); TAG=port-$P-lean436-$D; FORK=jasonyandell/alpoge-rh-replay
+D=$(date -u +%Y%m%d); TAG=port-$P-lean436-$D${TAG_SUFFIX:-}; FORK=jasonyandell/alpoge-rh-replay
 BASE=https://github.com/$FORK/releases/download/$TAG
 cd $REPO
 git checkout -q main
-FILES="$P-build.log $P-receipt.json $P-module-logs.tar.gz $P-islattice-audit.log"
+FILES="$P-build.log $P-receipt.json $P-module-logs.tar.gz $P-islattice-audit.log"; [ -f $OUT/$P-reused-audit.log ] && FILES="$FILES $P-reused-audit.log"
 (cd $OUT && gh release create $TAG -R $FORK --target main --title "Port $P evidence (Lean 4.36.0, Mathlib v4.36.0)" \
   --notes "Build evidence for rohanarun/alpoge-rh-replay#$I: port of $P ready modules to Lean 4.36.0 / Mathlib fc4f59e." $FILES >/dev/null)
 mkdir -p $TMP/dl-$P; for f in $FILES; do curl -sfL -o $TMP/dl-$P/$f $BASE/$f; cmp -s $TMP/dl-$P/$f $OUT/$f || { echo "ASSET MISMATCH $f"; exit 1; }; done; echo "assets verified"
-python3 tracker/port_build.py records $P $HOME/code/rh/work --ready-only --evidence $BASE/$P-receipt.json --notes $HOME/code/rh/$P-notes.json | head -1
+# records accepts notes only for patched modules: keep those, save the rest (audit explanations for unchanged modules) for the PR body
+python3 - $P $HOME/code/rh/$P-notes.json $TMP/notes-patched-$P.json $TMP/notes-unpatched-$P.json <<'PY'
+import json,os,sys
+P,src,keep,rest=sys.argv[1:]
+d=json.load(open(src)); k={m:v for m,v in d.items() if os.path.exists(f'port/patches/{m}.patch')}
+json.dump(k,open(keep,'w'),indent=2); json.dump({m:v for m,v in d.items() if m not in k},open(rest,'w'),indent=2)
+PY
+python3 tracker/port_build.py records $P ${WORK:-$HOME/code/rh/work} --ready-only --evidence $BASE/$P-receipt.json --notes $TMP/notes-patched-$P.json | head -1
 python3 tracker/validate_ports.py | tail -1 > $TMP/validate-$P.txt; cat $TMP/validate-$P.txt
 python3 - $P $HOME/code/rh/$P-notes.json > $TMP/summary-$P.md <<'PY'
 import gzip,json,os,sys,subprocess
