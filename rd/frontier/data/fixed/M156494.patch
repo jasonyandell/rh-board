@@ -1,0 +1,11 @@
+--- a/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/ResidueLatticeCount/RealHitIneq.lean
++++ b/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/ResidueLatticeCount/RealHitIneq.lean
+@@ -47,7 +47,7 @@
+       rw [hhit] at hy2
+       have hle : mixedEmbedding.norm y ≤ ρ ^ Module.finrank ℚ K / mixedEmbedding.norm x := by
+         rw [← hprod, mixedEmbedding.norm_apply]
+-        exact Finset.prod_le_prod (fun w _ => pow_nonneg (normAtPlace_nonneg w y) _)
++        exact Finset.prod_le_prod₀ (fun w _ => pow_nonneg (normAtPlace_nonneg w y) _)
+           (fun w _ => pow_le_pow_left₀ (normAtPlace_nonneg w y) (hy2 w).le _)
+       have hhalf : ρ ^ Module.finrank ℚ K / mixedEmbedding.norm x ≤ 1 / 2 := by
+         rw [div_le_iff₀ hx]

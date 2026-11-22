@@ -1,0 +1,29 @@
+--- a/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/CircleGaugeAction/OfRealCoordsSmulCenterCoord.lean
++++ b/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/CircleGaugeAction/OfRealCoordsSmulCenterCoord.lean
+@@ -96,7 +96,7 @@
+     (WithLp.equiv 2 _).symm (realifyFun (dz r ((s : ℂ) * Complex.I))) = s • v0 r := by
+   ext ⟨i, j, b⟩
+   simp only [WithLp.equiv_symm_apply, realifyFun, v0, dz, diagonal_apply, PiLp.smul_apply,
+-    EuclideanSpace.single_apply, smul_eq_mul]
++    PiLp.single_apply, smul_eq_mul]
+   by_cases hij : i = j
+   · subst hij
+     by_cases hi : i = cI r
+@@ -108,7 +108,7 @@
+ lemma ofRealCoords_smul_centerCoord (s : ℝ) : unrealify (s • v0 r) = dz r ((s : ℂ) * Complex.I) := by
+   ext i j
+   apply Complex.ext
+-  · simp only [unrealify, v0, dz, diagonal_apply, PiLp.smul_apply, EuclideanSpace.single_apply,
++  · simp only [unrealify, v0, dz, diagonal_apply, PiLp.smul_apply, PiLp.single_apply,
+       smul_eq_mul]
+     by_cases hij : i = j
+     · subst hij
+@@ -117,7 +117,7 @@
+         simp
+       · simp [hi]
+     · simp [hij]
+-  · simp only [unrealify, v0, dz, diagonal_apply, PiLp.smul_apply, EuclideanSpace.single_apply,
++  · simp only [unrealify, v0, dz, diagonal_apply, PiLp.smul_apply, PiLp.single_apply,
+       smul_eq_mul]
+     by_cases hij : i = j
+     · subst hij

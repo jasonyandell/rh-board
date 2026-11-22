@@ -1,0 +1,11 @@
+--- a/src/Development/AbelianVarietyTheory/Proofs/JetHarmonics/InvSqLeWignerCoeffSqRaising.lean
++++ b/src/Development/AbelianVarietyTheory/Proofs/JetHarmonics/InvSqLeWignerCoeffSqRaising.lean
+@@ -64,7 +64,7 @@
+     rfl
+   have hnum : (∏ j : Fin n, d (if j.castSucc < l then j.succ else j.castSucc))
+       ≤ ∏ j : Fin n, |(M j : ℝ) - 1 - L l| := by
+-    refine Finset.prod_le_prod (fun j _ => (hdpos _).le) fun j _ => ?_
++    refine Finset.prod_le_prod₀ (fun j _ => (hdpos _).le) fun j _ => ?_
+     obtain ⟨h1, h2⟩ := hM j
+     have h3 := hne j
+     have : e (if j.castSucc < l then j.succ else j.castSucc) ≤ |M j - 1 - L l| := by

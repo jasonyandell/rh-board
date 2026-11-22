@@ -1,0 +1,11 @@
+--- a/src/CompanionTheory/AutomorphicTheory/BesselWaveGrids/InterlacingGrids/Bracket.lean
++++ b/src/CompanionTheory/AutomorphicTheory/BesselWaveGrids/InterlacingGrids/Bracket.lean
+@@ -31,7 +31,7 @@
+       rw [Nat.card_Icc]
+       omega
+     rw [← hcard, ← prod_const]
+-    refine prod_le_prod (fun s _ => by positivity) fun s hs => ?_
++    refine prod_le_prod₀ (fun s _ => by positivity) fun s hs => ?_
+     rw [mem_Icc] at hs
+     have h1 := abs_add_le (Y + ε) (lam s)
+     have h2 := abs_add_le Y ε

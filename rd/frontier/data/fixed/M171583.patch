@@ -1,0 +1,11 @@
+--- a/src/ReciprocityTheory/Chebotarev/Support.lean
++++ b/src/ReciprocityTheory/Chebotarev/Support.lean
+@@ -102,7 +102,7 @@
+       _ = normAtPlace w x := Real.exp_log (hpos w)
+   refine ⟨h1, ?_⟩
+   rw [← mul_pow, mixedEmbedding.norm_apply, ← InfinitePlace.sum_mult_eq, ← Finset.prod_pow_eq_pow_sum]
+-  refine Finset.prod_le_prod (fun w _ => by positivity) fun w _ => ?_
++  refine Finset.prod_le_prod₀ (fun w _ => by positivity) fun w _ => ?_
+   exact pow_le_pow_left₀ (by positivity) (h1 w) _
+ 
+ end ReciprocityTheory.Cheb

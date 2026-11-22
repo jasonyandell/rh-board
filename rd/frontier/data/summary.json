@@ -1,0 +1,103 @@
+{
+ "targets": 4007,
+ "closure": 3943,
+ "closure_failed": [],
+ "outcomes": {
+  "unchanged-ok": 3410,
+  "still-failing": 416,
+  "fixed-by-A": 127,
+  "fixed-by-D": 39,
+  "unchanged-ok-islattice": 15
+ },
+ "by_depth": {
+  "0": {
+   "still-failing": 49,
+   "fixed-by-A": 8,
+   "fixed-by-D": 3
+  },
+  "1": {
+   "unchanged-ok": 180,
+   "still-failing": 28,
+   "fixed-by-A": 8,
+   "unchanged-ok-islattice": 2,
+   "fixed-by-D": 3
+  },
+  "2": {
+   "fixed-by-A": 96,
+   "unchanged-ok": 2735,
+   "still-failing": 282,
+   "unchanged-ok-islattice": 13,
+   "fixed-by-D": 29
+  },
+  "3": {
+   "unchanged-ok": 494,
+   "still-failing": 57,
+   "fixed-by-A": 15,
+   "fixed-by-D": 4
+  },
+  "4": {
+   "unchanged-ok": 1
+  }
+ },
+ "first_error_classes": {
+  "unknown identifier": 113,
+  "application type mismatch": 107,
+  "unknown constant": 94,
+  "function expected": 63,
+  "other": 47,
+  "rewrite failed": 42,
+  "failed to synthesize": 25,
+  "invalid alternative name": 21,
+  "type mismatch": 21,
+  "unsolved goals": 18,
+  "no goals": 12,
+  "timeout": 10,
+  "default value": 4,
+  "invalid field": 3,
+  "simp no progress": 1,
+  "linarith failed": 1
+ },
+ "arms": {
+  "A": {
+   "no-change": 402,
+   "builds": 127,
+   "fails:fewer-errors": 45,
+   "fails:no-change-in-errors": 5,
+   "fails:more-errors": 2,
+   "fails:same-count-first-error-changed": 1
+  },
+  "B": {
+   "fails:no-change-in-errors": 269,
+   "no-change": 266,
+   "fails:more-errors": 39,
+   "fails:same-count-first-error-changed": 7,
+   "fails:fewer-errors": 1
+  },
+  "C": {
+   "no-change": 187,
+   "fails:no-change-in-errors": 182,
+   "builds": 127,
+   "fails:fewer-errors": 47,
+   "fails:more-errors": 32,
+   "fails:same-count-first-error-changed": 7
+  },
+  "D": {
+   "no-change": 328,
+   "A-fixed": 127,
+   "fails:same-count-first-error-changed": 56,
+   "builds": 39,
+   "fails:fewer-errors": 28,
+   "fails:more-errors": 2,
+   "fails:no-change-in-errors": 2
+  }
+ },
+ "rule_check": {
+  "A:builds-needs-note": 6,
+  "A:proof-only": 121,
+  "C:builds-needs-note": 6,
+  "C:proof-only": 121,
+  "D:builds-needs-note": 3,
+  "D:proof-only": 36
+ },
+ "blocked": 0
+}

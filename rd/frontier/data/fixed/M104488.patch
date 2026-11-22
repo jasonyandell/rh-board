@@ -1,0 +1,20 @@
+--- a/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactAtUnimodularSeqsOfLinkNilCoordSubspace.lean
++++ b/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactAtUnimodularSeqsOfLinkNilCoordSubspace.lean
+@@ -11,7 +11,7 @@
+ 
+ theorem emb_apply_val {R : Type} [CommRing R] {m : ℕ} (v : Fin m → R) (k : Fin m) :
+     emb R m v (k : ℕ) = v k := by
+-  simp [emb, Finsupp.mapDomain_apply Fin.val_injective]
++  simp [emb, Finsupp.mapDomain_apply_of_injective Fin.val_injective]
+ 
+ theorem emb_apply_of_le {R : Type} [CommRing R] {m : ℕ} (v : Fin m → R) (n : ℕ) (h : m ≤ n) :
+     emb R m v n = 0 := by
+@@ -98,7 +98,7 @@
+       apply Finsupp.lhom_ext'
+       intro l
+       apply LinearMap.ext_ring
+-      simp [bd, Finsupp.mapDomain_finset_sum, Finsupp.mapDomain_smul, Finsupp.mapDomain_single, List.eraseIdx_map]
++      simp [bd, Finsupp.mapDomain_finsetSum, Finsupp.mapDomain_smul, Finsupp.mapDomain_single, List.eraseIdx_map]
+     exact LinearMap.congr_fun E c
+   intro c hc hbc
+   have hc' : Finsupp.mapDomain (List.map e) c ∈ chains (List.map e '' F) q := by

@@ -1,0 +1,11 @@
+--- a/src/Formalism/LogSumExpBounds/CharacterSumPhase/NuclearNormBoundHolds.lean
++++ b/src/Formalism/LogSumExpBounds/CharacterSumPhase/NuclearNormBoundHolds.lean
+@@ -23,7 +23,7 @@
+     simp [pow_two]
+   have h3 : (Y * Y).trace = ∑ a, ∑ b, ((‖Y a b‖ ^ 2 : ℝ) : ℂ) := by
+     conv_lhs => rw [show Y * Y = Yᴴ * Y by rw [hY.eq]]
+-    simp only [trace, Matrix.diag, mul_apply, conjTranspose_apply]
++    simp only [trace, Matrix.diag, Matrix.mul_apply, conjTranspose_apply]
+     rw [Finset.sum_comm]
+     refine Finset.sum_congr rfl fun a _ => Finset.sum_congr rfl fun b _ => ?_
+     rw [show star (Y a b) = (starRingEnd ℂ) (Y a b) from rfl, Complex.conj_mul']

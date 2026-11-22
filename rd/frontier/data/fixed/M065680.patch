@@ -1,0 +1,20 @@
+--- a/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/TuranSecondMainTheoremPowerSumsUnitCoefficients.lean
++++ b/src/Development/AbelianVarietyTheory/Proofs/GlobalInterpolation/TuranSecondMainTheoremPowerSumsUnitCoefficients.lean
+@@ -45,7 +45,7 @@
+   rw [norm_inv, norm_mul, norm_pow, norm_prod]
+   have hp : 1 ≤ ∏ t ∈ T, ‖w - a t‖ := by
+     calc (1 : ℝ) = ∏ t ∈ T, (1 : ℝ) := by simp
+-      _ ≤ _ := Finset.prod_le_prod (fun _ _ => zero_le_one) (fun t ht => by
++      _ ≤ _ := Finset.prod_le_prod₀ (fun _ _ => zero_le_one) (fun t ht => by
+         have := norm_sub_norm_le w (a t)
+         have := ha t ht
+         linarith)
+@@ -135,7 +135,7 @@
+         rw [← norm_mul, hf]
+         simp only
+         rw [Finset.prod_mul_prod_compl, norm_prod]
+-        refine hr3.trans (Finset.prod_le_prod (fun _ _ => abs_nonneg _) fun i _ => ?_)
++        refine hr3.trans (Finset.prod_le_prod₀ (fun _ _ => abs_nonneg _) fun i _ => ?_)
+         rw [← hw]; exact abs_norm_sub_norm_le _ _
+       have e3 : 0 < ‖f w‖ := norm_pos_iff.2 (right_ne_zero_of_mul (hfne w hw.ge))
+       rw [e1, norm_inv, norm_mul, norm_pow, hw, hG, inv_mul_eq_div, inv_eq_one_div,

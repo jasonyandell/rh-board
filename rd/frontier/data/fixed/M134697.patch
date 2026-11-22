@@ -1,0 +1,20 @@
+--- a/src/Development/AutomorphicSpectrum/Proofs/TwistedProofs/NormDetLeFactorialMulProd.lean
++++ b/src/Development/AutomorphicSpectrum/Proofs/TwistedProofs/NormDetLeFactorialMulProd.lean
+@@ -16,7 +16,7 @@
+         have h1 : ‖Equiv.Perm.sign σ • ∏ i, P (σ i) i‖ = ∏ i, ‖P (σ i) i‖ := by
+           rcases Int.units_eq_one_or (Equiv.Perm.sign σ) with h | h <;> simp [h, norm_prod]
+         rw [h1, ← Equiv.prod_comp σ c]
+-        exact Finset.prod_le_prod (fun _ _ => norm_nonneg _) fun i _ => hc _ _
++        exact Finset.prod_le_prod₀ (fun _ _ => norm_nonneg _) fun i _ => hc _ _
+     _ = a.factorial * ∏ r, c r := by
+         simp [Finset.card_univ, Fintype.card_perm]
+ 
+@@ -130,7 +130,7 @@
+       _ = _ := by ring
+   have h6 : 1 ≤ L ^ Fintype.card ι := by
+     calc (1 : ℝ) ≤ ∏ i, ‖ε i z‖ := hprod z hzR hz0
+-      _ ≤ ∏ _i : ι, L := Finset.prod_le_prod (fun _ _ => norm_nonneg _) fun i _ => hbound i
++      _ ≤ ∏ _i : ι, L := Finset.prod_le_prod₀ (fun _ _ => norm_nonneg _) fun i _ => hbound i
+       _ = L ^ Fintype.card ι := by simp [Finset.card_univ]
+   by_contra hlt
+   push_neg at hlt

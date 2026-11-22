@@ -1,0 +1,20 @@
+--- a/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/ExistsEqTransposeMulDiagonalMul.lean
++++ b/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/ExistsEqTransposeMulDiagonalMul.lean
+@@ -45,7 +45,7 @@
+   ext i j
+   have e1' := congrFun (congrFun e1 i) j
+   have e2' := congrFun (congrFun e2 i) j
+-  simp only [mul_apply, map_apply, transpose_apply, diagonal_apply, mul_ite, mul_zero,
++  simp only [Matrix.mul_apply, map_apply, transpose_apply, diagonal_apply, mul_ite, mul_zero,
+     Finset.sum_ite_eq', Finset.mem_univ, if_true] at e1' e2' ⊢
+   apply Complex.ext <;> simp [e1', e2']
+ 
+@@ -76,7 +76,7 @@
+   · convert h.posDef.conjTranspose_mul_mul_same (B := P)
+       (mulVec_injective_of_isUnit ((isUnit_iff_isUnit_det P).2 hP.isUnit)) using 1
+     ext i j
+-    simp [mul_apply]
++    simp [Matrix.mul_apply]
+ 
+ theorem IsSiegel.isUnit_det {σ : Matrix ι ι ℂ} (h : IsSiegel σ) : IsUnit σ.det := by
+   obtain ⟨P, hP, t, ht, rfl⟩ := h.exists_eq_transpose_mul_diagonal_mul

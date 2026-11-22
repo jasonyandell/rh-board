@@ -1,0 +1,11 @@
+--- a/src/GroundTheory/HeightsAndTheta/Heights/KleimanAmpleness/CoordIdealIsMultiProjPrime.lean
++++ b/src/GroundTheory/HeightsAndTheta/Heights/KleimanAmpleness/CoordIdealIsMultiProjPrime.lean
+@@ -503,7 +503,7 @@
+     refine ⟨i, fun h => ?_⟩
+     have h' : coneMap S (fun v : (Σ _ : Unit, Fin (N + 1)) => x v.2) (X ⟨k, i⟩) = 0 := h
+     simp only [coneMap, aeval_X] at h'
+-    exact hi (by simpa using congrArg (Polynomial.coeff · 1) h')
++    exact hi (by simpa using congrArg (AddMonoidAlgebra.coeff · 1) h')
+ 
+ end Comparison₂
+ 

@@ -1,0 +1,11 @@
+--- a/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/MulMemSqOfSmulEqZero.lean
++++ b/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/MulMemSqOfSmulEqZero.lean
+@@ -71,7 +71,7 @@
+     have : y = fJ x := Subtype.ext hxy
+     exact this ▸ hy
+   obtain ⟨q, hmon, -, hcoef, hq⟩ :=
+-    LinearMap.exists_monic_and_coeff_mem_pow_and_aeval_eq_zero_of_range_le_smul B fJ J hrange
++    LinearMap.exists_monic_and_natDegree_eq_and_coeff_mem_pow_and_aeval_eq_zero B fJ J hrange
+   refine ⟨q.eval c, q.natDegree, fun x hx => ?_, ?_⟩
+   · have h2 : Polynomial.aeval fJ q = algebraMap B (Module.End B J) (q.eval c) := by
+       change Polynomial.aeval (algebraMap B (Module.End B J) c) q = _

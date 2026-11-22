@@ -1,0 +1,20 @@
+--- a/src/Formalism/CharacterColumnKernels/IdempotentNormalForms/LengthQuotSmulRangeFree.lean
++++ b/src/Formalism/CharacterColumnKernels/IdempotentNormalForms/LengthQuotSmulRangeFree.lean
+@@ -151,7 +151,7 @@
+     by_cases hc : c = 0
+     · exact Or.inl hc
+     · right
+-      have hreg : IsRegular c := isRegular_of_ne_zero hc
++      have hreg : IsRegular c := IsRegular.of_ne_zero hc
+       apply (‹IsTorsionFree O Q›).1 hreg
+       show c • x = c • 0
+       rw [h, smul_zero]
+@@ -244,7 +244,7 @@
+       by_cases hc : c = 0
+       · exact Or.inl hc
+       · right
+-        have hreg : IsRegular c := isRegular_of_ne_zero hc
++        have hreg : IsRegular c := IsRegular.of_ne_zero hc
+         apply hQtf.1 hreg
+         show c • x = c • 0
+         rw [h, smul_zero]

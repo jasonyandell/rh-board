@@ -1,0 +1,11 @@
+--- a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MatrixCoeffDecaySecondPart.lean
++++ b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/MatrixCoeffDecaySecondPart.lean
+@@ -68,7 +68,7 @@
+ 
+ theorem integrable_derivBound (g g' : Sch (Fin n)) (j : ℕ) : Integrable (derivBound g g' j) := by
+   unfold derivBound
+-  refine integrable_finset_sum _ fun i _ => ?_
++  refine integrable_finsetSum _ fun i _ => ?_
+   have := SchwartzMap.integrable_pow_mul_iteratedFDeriv volume g' 0 (j - i)
+   simp only [pow_zero, one_mul] at this
+   exact this.const_mul _

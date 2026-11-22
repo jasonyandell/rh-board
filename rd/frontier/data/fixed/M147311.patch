@@ -1,0 +1,11 @@
+--- a/src/Formalism/HyperbolicPlaceProducts/SubgroupIndexCounts/TheoremBEntryFormula.lean
++++ b/src/Formalism/HyperbolicPlaceProducts/SubgroupIndexCounts/TheoremBEntryFormula.lean
+@@ -39,7 +39,7 @@
+     have hA : w0 (β : E) ^ w0.mult < 1 :=
+       pow_lt_one₀ (by positivity) (hwβ w0) (NumberField.InfinitePlace.mult_ne_zero)
+     have hB : ∏ w ∈ Finset.univ.erase w0, w (β : E) ^ w.mult ≤ 1 :=
+-      Finset.prod_le_one (fun w _ => by positivity) (fun w _ => pow_le_one₀ (by positivity) (hwβ w).le)
++      Finset.prod_le_one₀ (fun w _ => by positivity) (fun w _ => pow_le_one₀ (by positivity) (hwβ w).le)
+     have hB0 : 0 ≤ ∏ w ∈ Finset.univ.erase w0, w (β : E) ^ w.mult :=
+       Finset.prod_nonneg (fun w _ => by positivity)
+     nlinarith [pow_nonneg (by positivity : (0 : ℝ) ≤ w0 (β : E)) w0.mult]

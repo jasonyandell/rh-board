@@ -1,0 +1,11 @@
+--- a/src/Development/AutomorphicSpectrum/Proofs/AlgebraProofs/TeichmullerCharacterExists.lean
++++ b/src/Development/AutomorphicSpectrum/Proofs/AlgebraProofs/TeichmullerCharacterExists.lean
+@@ -215,7 +215,7 @@
+           exact mul_right_cancel₀ h0 (hx'.trans (one_mul x).symm)
+         obtain ⟨i, hi, hix⟩ := hrr.eq_pow_of_pow_eq_one hxn
+         exact ⟨some ⟨i, hi⟩, hix⟩
+-  let E : Option (Fin n) ≃ S := (Equiv.ofInjective φ hφ).trans (Equiv.setCongr hrange)
++  let E : Option (Fin n) ≃ S := (Equiv.ofInjective φ hφ).trans (Set.equivOfEq hrange)
+   let _instS : Fintype S := Fintype.ofEquiv _ E
+   have hcardS : Fintype.card S = Fintype.card F := by
+     rw [← Fintype.card_congr E, Fintype.card_option, Fintype.card_fin, hq, hqn]

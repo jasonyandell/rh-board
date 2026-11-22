@@ -1,0 +1,29 @@
+--- a/src/ReciprocityTheory/SemistableReduction/TorusLexC.lean
++++ b/src/ReciprocityTheory/SemistableReduction/TorusLexC.lean
+@@ -15,7 +15,7 @@
+   have h : ∀ i, Continuous fun θ : ι → ℝ => torusPoint θ i :=
+     fun i => (continuous_apply i).comp continuous_torusPoint
+   unfold torusMono
+-  exact continuous_finset_prod _ (fun i _ => (h i).pow _)
++  exact continuous_finsetProd _ (fun i _ => (h i).pow _)
+ 
+ theorem integrable_torus_term {ι : Type} [Fintype ι] (f : MvPolynomial ι ℂ) (s : ι →₀ ℕ) :
+     Integrable (fun θ => MvPolynomial.eval (torusPoint θ) f * conj (torusMono θ s))
+@@ -36,7 +36,7 @@
+     ∫ θ, MvPolynomial.eval (torusPoint θ) f * conj (torusMono θ s) ∂(torusProb ι) =
+       f.coeff s := by
+   simp_rw [eval_torus, Finset.sum_mul]
+-  rw [integral_finset_sum _ (fun t _ => by
++  rw [integral_finsetSum _ (fun t _ => by
+     simpa [mul_assoc] using (integrable_mono_term t s).const_mul (f.coeff t))]
+   simp_rw [mul_assoc, integral_const_mul, torus_orth, mul_ite, mul_one, mul_zero]
+   rw [Finset.sum_ite_eq']
+@@ -65,7 +65,7 @@
+   apply Complex.ofReal_injective
+   rw [← integral_complex_ofReal]
+   simp_rw [key]
+-  rw [integral_finset_sum _ (fun s _ => (integrable_torus_term f s).const_mul _)]
++  rw [integral_finsetSum _ (fun s _ => (integrable_torus_term f s).const_mul _)]
+   simp_rw [integral_const_mul, torus_coeff_integral]
+   push_cast
+   refine Finset.sum_congr rfl (fun s _ => ?_)

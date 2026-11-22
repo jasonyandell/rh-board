@@ -1,0 +1,11 @@
+--- a/src/Development/AbelianVarietyTheory/Proofs/ModuliProofs/ContDiffAndFderivTsumFourierOfRapid.lean
++++ b/src/Development/AbelianVarietyTheory/Proofs/ModuliProofs/ContDiffAndFderivTsumFourierOfRapid.lean
+@@ -99,7 +99,7 @@
+   rw [Finset.prod_inv_distrib]
+   apply inv_anti₀ (Finset.prod_pos fun k _ => by positivity)
+   calc ∏ k, (1 + |(ν k : ℝ)|) ^ 2 ≤ ∏ _k : Fin n, (1 + ∑ k, |(ν k : ℝ)|) ^ 2 :=
+-        Finset.prod_le_prod (fun k _ => by positivity) fun k _ =>
++        Finset.prod_le_prod₀ (fun k _ => by positivity) fun k _ =>
+           pow_le_pow_left₀ (by positivity)
+             (add_le_add le_rfl (Finset.single_le_sum (f := fun k => |(ν k : ℝ)|)
+               (fun _ _ => abs_nonneg _) (Finset.mem_univ k))) 2

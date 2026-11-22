@@ -1,0 +1,11 @@
+--- a/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/HermitianDiagonalization/ExistsOrthogonalFamily.lean
++++ b/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/HermitianDiagonalization/ExistsOrthogonalFamily.lean
+@@ -90,7 +90,7 @@
+       have hw0 : ∀ i, h v (w i) = 0 := fun i => by
+         rw [← hfv]; exact LinearMap.mem_ker.1 (w i).2
+       refine ⟨Fin.cons v (fun i => (w i : V)), ?_, ?_⟩
+-      · rw [linearIndependent_fin_cons]
++      · rw [linearIndependent_finCons]
+         refine ⟨hwi.map' (LinearMap.ker f).subtype (Submodule.ker_subtype _), ?_⟩
+         intro hmem
+         have hle : Submodule.span E (Set.range fun i => (w i : V)) ≤ LinearMap.ker f :=

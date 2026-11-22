@@ -1,0 +1,17 @@
+--- a/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/HeightTheory/OrthogonalProjectorMulEmbeddingColumns.lean
++++ b/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/HeightTheory/OrthogonalProjectorMulEmbeddingColumns.lean
+@@ -127,12 +127,12 @@
+     {q : Fin r → K} (hq : q ∉ Submodule.span K (Set.range b)) :
+     hPm σ b *ᵥ (fun i => σ (q i)) ≠ 0 := by
+   intro h0
+-  have hli := linearIndependent_map_embedding σ ((linearIndependent_fin_cons).mpr ⟨hb, hq⟩)
++  have hli := linearIndependent_map_embedding σ ((linearIndependent_finCons).mpr ⟨hb, hq⟩)
+   have hcons : (fun i l => σ ((Fin.cons q b : Fin (k + 1) → Fin r → K) i l)) =
+       (Fin.cons (fun l => σ (q l)) (fun j l => σ (b j l)) : Fin (k + 1) → Fin r → ℂ) := by
+     funext i
+     refine Fin.cases ?_ ?_ i <;> simp
+-  rw [hcons, linearIndependent_fin_cons] at hli
++  rw [hcons, linearIndependent_finCons] at hli
+   apply hli.2
+   have hv : (fun i => σ (q i)) =
+       (hBm σ b * ((hBm σ b)ᴴ * hBm σ b)⁻¹ * (hBm σ b)ᴴ) *ᵥ fun i => σ (q i) := by

@@ -1,0 +1,20 @@
+--- a/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/DiscreteValuationRings/LBTransport.lean
++++ b/src/ReciprocityTheory/ReductiveGroups/ArithmeticGeometry/DiscreteValuationRings/LBTransport.lean
+@@ -470,7 +470,7 @@
+ 
+ lemma fsum_apply (φ : K → (Y ⟶ X)) (ε : K → ℤ) (ψ : Y ⟶ X) :
+     fsum φ ε ψ = ∑ k, if φ k = ψ then ε k else 0 := by
+-  simp only [fsum, Finsupp.coe_finset_sum, Finset.sum_apply, Finsupp.single_apply]
++  simp only [fsum, Finsupp.coe_finsetSum, Finset.sum_apply, Finsupp.single_apply]
+ 
+ lemma sameSum_iff_fsum (φ : K → (Y ⟶ X)) (ε : K → ℤ) (φ' : K' → (Y ⟶ X)) (ε' : K' → ℤ) :
+     LB.SameSum φ ε φ' ε' ↔ fsum φ ε = fsum φ' ε' := by
+@@ -496,7 +496,7 @@
+ 
+ lemma fsum_comp (φ : K → (Y ⟶ X)) (ε : K → ℤ) {Z : Scheme.{0}} (h : Z ⟶ Y) :
+     fsum (fun k => h ≫ φ k) ε = Finsupp.mapDomain (fun ψ => h ≫ ψ) (fsum φ ε) := by
+-  simp [fsum, Finsupp.mapDomain_finset_sum, Finsupp.mapDomain_single]
++  simp [fsum, Finsupp.mapDomain_finsetSum, Finsupp.mapDomain_single]
+ 
+ lemma fsum_empty : fsum (Y := Y) (X := X) (K := PEmpty) PEmpty.elim PEmpty.elim = 0 := by
+   simp [fsum]

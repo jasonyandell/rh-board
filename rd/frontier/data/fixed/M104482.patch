@@ -1,0 +1,11 @@
+--- a/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactAtLinkInUniMOfExactAtMapLinearEquiv.lean
++++ b/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/ExactAtLinkInUniMOfExactAtMapLinearEquiv.lean
+@@ -45,7 +45,7 @@
+   | add a b ha hb => simp [Finsupp.mapDomain_add, ha, hb]
+   | single l n =>
+     simp [bd, Finsupp.mapDomain_single, Finsupp.linearCombination_single,
+-      Finsupp.mapDomain_finset_sum, Finsupp.mapDomain_smul, List.eraseIdx_map]
++      Finsupp.mapDomain_finsetSum, Finsupp.mapDomain_smul, List.eraseIdx_map]
+ 
+ private theorem mapDomain_listMap_mem_chains_of_map_mem {V : Type} (g : V → V) (F G : Set (List V))
+     (hFG : ∀ l ∈ F, l.map g ∈ G) (p : ℕ) (c : List V →₀ ℤ) (hc : c ∈ chains F p) :

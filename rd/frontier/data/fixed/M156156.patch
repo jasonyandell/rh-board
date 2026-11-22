@@ -1,0 +1,14 @@
+--- a/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/MonomialFrameSpan/BasisMonomialsApply.lean
++++ b/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/MonomialFrameSpan/BasisMonomialsApply.lean
+@@ -60,9 +60,9 @@
+       (α.mapDomain (Sum.inl : _ → XZ Lt N0 N1) + β.mapDomain Sum.inr) = (α, β) := by
+   ext x
+   · rw [Finsupp.fst_sumFinsuppEquivProdFinsupp, Finsupp.add_apply,
+-      Finsupp.mapDomain_apply Sum.inl_injective, Finsupp.mapDomain_of_notMem_range] <;> simp
++      Finsupp.mapDomain_apply_of_injective Sum.inl_injective, Finsupp.mapDomain_of_notMem_range] <;> simp
+   · rw [Finsupp.snd_sumFinsuppEquivProdFinsupp, Finsupp.add_apply,
+-      Finsupp.mapDomain_apply Sum.inr_injective, Finsupp.mapDomain_of_notMem_range] <;> simp
++      Finsupp.mapDomain_apply_of_injective Sum.inr_injective, Finsupp.mapDomain_of_notMem_range] <;> simp
+ 
+ theorem Lj_inl_inr (Th : MvPowerSeries (Lt × Fin N0 × Fin N1) ℂ_[l])
+     (a : MvPolynomial (Lt × ℕ × Fin N0) ℤ) (q : MvPolynomial (Lt × Fin N0 × Fin N1) ℤ) :

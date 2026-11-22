@@ -1,0 +1,31 @@
+--- a/src/Formalism/HermitianCurvature/HermitianCurvatureProofs/WordMonicExtraction.lean
++++ b/src/Formalism/HermitianCurvature/HermitianCurvatureProofs/WordMonicExtraction.lean
+@@ -12,7 +12,7 @@
+     exact lt_of_le_of_lt Polynomial.degree_le_natDegree (by exact_mod_cast Nat.lt_succ_of_le hP)
+   have hI := Lagrange.eq_interpolate (s := Finset.univ) (v := v) hv.injOn hdeg
+   conv_rhs => rw [hI]
+-  rw [Lagrange.interpolate_apply, Polynomial.finset_sum_coeff]
++  rw [Lagrange.interpolate_apply, Polynomial.finsetSum_coeff]
+   refine Finset.sum_congr rfl (fun j _ => ?_)
+   have hb : Lagrange.basis Finset.univ v j =
+       Polynomial.C (∏ i ∈ Finset.univ.erase j, (v j - v i)⁻¹) *
+@@ -141,8 +141,8 @@
+     rw [natDegree_mono]
+     rw [Finset.mem_range] at hi hk
+     omega
+-  · rw [Polynomial.finset_sum_coeff]
+-    simp_rw [Polynomial.finset_sum_coeff, Polynomial.coeff_C_mul]
++  · rw [Polynomial.finsetSum_coeff]
++    simp_rw [Polynomial.finsetSum_coeff, Polynomial.coeff_C_mul]
+     rw [Finset.sum_eq_single_of_mem a (Finset.mem_range.mpr (Nat.lt_succ_self a)) ?_]
+     · rw [Finset.sum_eq_single_of_mem b (Finset.mem_range.mpr (Nat.lt_succ_self b)) ?_]
+       · rw [coeff_mono _ _ _ _ _ le_rfl le_rfl, if_pos ⟨rfl, rfl⟩, mul_one]
+@@ -158,7 +158,7 @@
+     beta_reduce
+     rw [evR_smul P₁ a ha Y X, evR_smul P₂ b hb (Y + h) X']
+     simp only [map_sum, LinearMap.sum_apply, map_smul, map_smulₛₗ, LinearMap.smul_apply, smul_eq_mul,
+-      RingHom.id_apply, Polynomial.eval_finset_sum, Polynomial.eval_mul, Polynomial.eval_C,
++      RingHom.id_apply, Polynomial.eval_finsetSum, Polynomial.eval_mul, Polynomial.eval_C,
+       Polynomial.eval_pow, Polynomial.eval_X, Polynomial.eval_add, map_pow, map_add, Complex.conj_ofReal,
+       Complex.ofReal_add, Finset.mul_sum, Finset.sum_mul]
+     first

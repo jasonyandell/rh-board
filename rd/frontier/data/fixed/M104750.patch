@@ -1,0 +1,11 @@
+--- a/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/BfDep.lean
++++ b/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/ReductionBoundsTorsion/WhittakerSmoothForms/BfDep.lean
+@@ -16,7 +16,7 @@
+   apply IsClosed.inter
+   · rw [Set.setOf_forall]
+     exact isClosed_iInter fun j => isClosed_le continuous_const (continuous_apply j)
+-  · exact isClosed_le (continuous_finset_sum _ fun j _ => continuous_apply j) continuous_const
++  · exact isClosed_le (continuous_finsetSum _ fun j _ => continuous_apply j) continuous_const
+ 
+ private theorem simplex_point_mem_of_convex_of_vertices_mem {q : ℕ} (hU : Convex ℝ U) (y : Fin (q + 1) → V) (hy : ∀ i, y i ∈ U)
+     (t : Fin q → ℝ) (ht : (∀ j, 0 ≤ t j) ∧ ∑ j, t j ≤ 1) :

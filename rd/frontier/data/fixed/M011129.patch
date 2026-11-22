@@ -1,0 +1,11 @@
+--- a/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SchwartzBruhatMatrixTranslationModulationIrreduc.lean
++++ b/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/SchwartzBruhatMatrixTranslationModulationIrreduc.lean
+@@ -231,7 +231,7 @@
+     (hΦ : Φ ∈ SB (Matrix Y Y' k)) (b : Matrix Y Y' k) :
+     (fun t => (ψk (pair b t) : ℂ) * Φ t) ∈ SB (Matrix Y Y' k) := by
+   have hp : Continuous (fun t : Matrix Y Y' k => pair b t) :=
+-    continuous_finset_sum _ fun r _ => continuous_finset_sum _ fun q _ =>
++    continuous_finsetSum _ fun r _ => continuous_finsetSum _ fun q _ =>
+       continuous_const.mul (continuous_id.matrix_elem r q)
+   have hl : IsLocallyConstant (fun t => (ψk (pair b t) : ℂ)) :=
+     ((char_isLocallyConstant ψk hψ).comp_continuous hp).comp (fun z : Circle => (z : ℂ))

@@ -1,0 +1,128 @@
+{
+ "stages": [
+  {
+   "stage": "prepare",
+   "modules": 7950,
+   "wall_s": 4.1,
+   "per_hour": 7032670,
+   "jobs": 6,
+   "at": 1795317979.133914
+  },
+  {
+   "stage": "closure",
+   "modules": 1518,
+   "wall_s": 1294.2,
+   "per_hour": 4223,
+   "jobs": 6,
+   "at": 1795319279.0478332
+  },
+  {
+   "stage": "closure",
+   "modules": 2091,
+   "wall_s": 1725.5,
+   "per_hour": 4363,
+   "jobs": 6,
+   "at": 1795321004.5362282
+  },
+  {
+   "stage": "closure",
+   "modules": 333,
+   "wall_s": 259.8,
+   "per_hour": 4614,
+   "jobs": 6,
+   "at": 1795321264.3495018
+  },
+  {
+   "stage": "closure",
+   "modules": 1,
+   "wall_s": 3.0,
+   "per_hour": 1210,
+   "jobs": 6,
+   "at": 1795321267.332469
+  },
+  {
+   "stage": "base",
+   "modules": 4007,
+   "wall_s": 3638.6,
+   "per_hour": 3965,
+   "jobs": 6,
+   "at": 1795324907.531429
+  },
+  {
+   "stage": "A",
+   "modules": 582,
+   "wall_s": 166.3,
+   "per_hour": 12602,
+   "jobs": 6,
+   "at": 1795325092.4621341
+  },
+  {
+   "stage": "B",
+   "modules": 582,
+   "wall_s": 469.5,
+   "per_hour": 4463,
+   "jobs": 6,
+   "at": 1795325561.9770901
+  },
+  {
+   "stage": "C",
+   "modules": 582,
+   "wall_s": 398.1,
+   "per_hour": 5262,
+   "jobs": 6,
+   "at": 1795325960.1310039
+  },
+  {
+   "stage": "D",
+   "modules": 582,
+   "wall_s": 141.5,
+   "per_hour": 14809,
+   "jobs": 6,
+   "at": 1795326168.821044
+  }
+ ],
+ "per_module_secs": {
+  "closure": {
+   "n": 3943,
+   "median": 4.31,
+   "p90": 5.4,
+   "max": 488.8,
+   "sum": 19529
+  },
+  "base": {
+   "n": 4007,
+   "median": 4.39,
+   "p90": 5.68,
+   "max": 148.37,
+   "sum": 21599
+  },
+  "A": {
+   "n": 180,
+   "median": 4.2,
+   "p90": 6.48,
+   "max": 121.01,
+   "sum": 984
+  },
+  "B": {
+   "n": 316,
+   "median": 4.73,
+   "p90": 6.9,
+   "max": 122.05,
+   "sum": 2587
+  },
+  "C": {
+   "n": 268,
+   "median": 4.37,
+   "p90": 6.57,
+   "max": 116.62,
+   "sum": 2208
+  },
+  "D": {
+   "n": 127,
+   "median": 3.93,
+   "p90": 5.63,
+   "max": 92.88,
+   "sum": 702
+  }
+ }
+}
