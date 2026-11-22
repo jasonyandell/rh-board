@@ -1,0 +1,412 @@
+id	depth	category	lines_right	lines_consistent	wrong_kept	wrong_changed	patch_lines
+M172531	1	no_fire					
+M172533	1	no_fire					
+M172558	1	no_fire					
+M172561	1	no_fire					
+M172594	1	no_fire					
+M172605	1	no_fire					
+M172634	1	exact					
+M172953	1	no_fire					
+M173174	1	no_fire					
+M173181	1	partial	2	0	0	0	3
+M173194	1	partial	1	0	0	0	3
+M173241	1	exact					
+M173251	1	exact					
+M173276	1	no_fire					
+M173427	1	no_fire					
+M173520	1	no_fire					
+M173522	1	partial	2	0	0	0	3
+M173529	1	no_fire					
+M096330	1	no_fire					
+M097202	1	no_fire					
+M098151	1	partial	1	0	0	0	4
+M099837	1	partial	1	0	0	0	3
+M099920	1	exact					
+M101070	1	no_fire					
+M101273	1	exact					
+M064246	2	exact					
+M103498	1	exact					
+M103605	1	exact					
+M104508	1	no_fire					
+M104510	1	no_fire					
+M104529	1	no_fire					
+M104532	1	no_fire					
+M104585	1	no_fire					
+M104589	1	no_fire					
+M104598	1	exact					
+M104670	1	exact					
+M104671	1	exact					
+M104673	1	exact					
+M104677	1	exact					
+M104685	1	exact					
+M104714	1	exact					
+M104715	1	partial	3	0	0	0	5
+M125280	1	no_fire					
+M125652	1	no_fire					
+M125969	1	no_fire					
+M126007	1	exact					
+M126101	1	partial	1	0	0	0	7
+M126230	1	no_fire					
+M126265	1	no_fire					
+M126399	1	no_fire					
+M126459	1	exact					
+M126772	1	partial	1	0	0	0	2
+M003848	1	no_fire					
+M169435	1	no_fire					
+M169557	1	no_fire					
+M169812	1	no_fire					
+M169862	1	no_fire					
+M169955	1	no_fire					
+M169983	1	no_fire					
+M170102	1	no_fire					
+M170136	1	exact					
+M170279	1	no_fire					
+M137664	0	no_fire					
+M137997	0	exact					
+M138011	0	exact					
+M138259	0	partial	1	0	0	0	3
+M138319	0	exact					
+M138323	0	no_fire					
+M138393	0	exact					
+M138437	0	no_fire					
+M138481	0	partial	1	0	0	0	2
+M138505	0	exact					
+M138541	0	no_fire					
+M138643	0	no_fire					
+M138682	0	no_fire					
+M138855	0	no_fire					
+M139060	0	no_fire					
+M000027	1	exact					
+M000523	1	no_fire					
+M000555	1	no_fire					
+M000705	1	exact					
+M000871	1	exact					
+M000947	1	exact					
+M001622	1	exact					
+M002043	1	no_fire					
+M002218	1	no_fire					
+M123848	1	partial	1	0	0	0	3
+M124300	1	exact					
+M124607	1	no_fire					
+M124838	1	exact					
+M124887	1	no_fire					
+M125033	1	no_fire					
+M020893	1	no_fire					
+M021076	1	exact					
+M022742	1	no_fire					
+M018206	1	no_fire					
+M018208	1	no_fire					
+M018507	1	no_fire					
+M018797	1	no_fire					
+M019711	1	exact					
+M154555	1	no_fire					
+M154785	1	no_fire					
+M154793	1	no_fire					
+M154915	1	exact					
+M154940	1	no_fire					
+M155123	1	exact					
+M155202	1	no_fire					
+M155213	1	no_fire					
+M155318	1	exact					
+M155356	1	no_fire					
+M155415	1	no_fire					
+M155417	1	no_fire					
+M155460	1	no_fire					
+M155467	1	no_fire					
+M155470	1	no_fire					
+M155482	1	no_fire					
+M155484	1	no_fire					
+M155843	1	exact					
+M051585	1	exact					
+M053945	1	exact					
+M006367	1	no_fire					
+M006378	1	no_fire					
+M006379	1	no_fire					
+M006381	1	no_fire					
+M006407	1	no_fire					
+M006439	1	no_fire					
+M006443	1	exact					
+M006454	1	no_fire					
+M006609	1	no_fire					
+M007509	1	partial	1	0	0	0	2
+M009060	1	no_fire					
+M011336	1	exact					
+M012879	1	no_fire					
+M064687	1	no_fire					
+M065265	1	exact					
+M065317	1	no_fire					
+M065560	1	no_fire					
+M066432	1	partial	2	0	0	0	3
+M066434	1	partial	1	0	0	0	1
+M066448	1	no_fire					
+M066484	1	no_fire					
+M137498	1	no_fire					
+M137567	1	no_fire					
+M137738	1	exact					
+M138132	1	exact					
+M138176	1	partial	1	0	0	0	2
+M138191	1	no_fire					
+M139064	1	no_fire					
+M163861	1	no_fire					
+M163991	1	no_fire					
+M164027	1	no_fire					
+M164053	1	no_fire					
+M164086	1	no_fire					
+M164122	1	no_fire					
+M164123	1	no_fire					
+M164124	1	no_fire					
+M119671	1	exact					
+M119901	1	alt_fix_changed_line	0	0	0	1	1
+M120428	1	no_fire					
+M120855	1	no_fire					
+M120957	1	exact					
+M121267	1	partial	1	0	0	0	2
+M121484	1	alt_fix_changed_line	0	0	0	1	1
+M121557	1	exact					
+M121591	1	exact					
+M121913	1	alt_fix_changed_line	0	0	0	1	3
+M122273	1	no_fire					
+M122373	1	no_fire					
+M122587	1	exact					
+M134229	1	no_fire					
+M135054	1	no_fire					
+M135165	1	no_fire					
+M139084	1	no_fire					
+M139089	1	no_fire					
+M139287	1	exact					
+M139532	1	exact					
+M140450	1	no_fire					
+M140454	1	no_fire					
+M140942	1	no_fire					
+M141663	1	exact					
+M143109	1	exact					
+M143129	1	no_fire					
+M143255	1	no_fire					
+M162107	1	no_fire					
+M162110	1	no_fire					
+M162140	1	no_fire					
+M162142	1	no_fire					
+M162310	1	no_fire					
+M162416	1	exact					
+M162430	1	no_fire					
+M164952	1	no_fire					
+M165181	1	no_fire					
+M165205	1	no_fire					
+M165414	1	no_fire					
+M173624	1	partial	1	0	0	0	12
+M173646	1	exact					
+M173700	1	no_fire					
+M173710	1	alt_fix_changed_line	0	0	0	1	2
+M173735	1	no_fire					
+M173740	1	no_fire					
+M173750	1	no_fire					
+M173754	1	no_fire					
+M173779	1	no_fire					
+M173836	1	no_fire					
+M174012	1	no_fire					
+M174648	1	no_fire					
+M174663	1	no_fire					
+M174721	1	no_fire					
+M167348	1	partial	1	0	0	0	4
+M167351	1	partial	1	0	0	0	4
+M167577	1	no_fire					
+M167808	1	no_fire					
+M167901	1	no_fire					
+M167902	1	no_fire					
+M168029	1	no_fire					
+M168314	1	no_fire					
+M169264	1	partial	1	0	0	0	7
+M169272	1	no_fire					
+M169279	1	no_fire					
+M169282	1	no_fire					
+M169423	1	exact					
+M089534	1	no_fire					
+M090143	1	no_fire					
+M090336	1	partial_consistent	3	3	0	0	15
+M090732	1	no_fire					
+M091441	1	false_fix_kept_line	0	1	1	0	1
+M091528	1	exact					
+M091792	1	exact					
+M069414	1	no_fire					
+M069951	1	no_fire					
+M070093	1	no_fire					
+M001031	3	no_fire					
+M171491	2	no_fire					
+M171697	2	no_fire					
+M171721	2	no_fire					
+M171936	2	exact					
+M172102	2	exact					
+M172105	2	no_fire					
+M026435	0	no_fire					
+M026517	0	exact					
+M026561	0	no_fire					
+M026632	0	exact					
+M027309	0	exact					
+M028264	0	no_fire					
+M028335	0	exact					
+M028442	0	no_fire					
+M147460	1	no_fire					
+M147635	1	no_fire					
+M147929	1	no_fire					
+M148608	1	exact					
+M148910	1	no_fire					
+M149076	1	exact					
+M150024	1	no_fire					
+M150294	1	partial	1	0	0	0	5
+M150358	1	partial	1	0	0	0	6
+M150744	1	no_fire					
+M150792	1	no_fire					
+M049079	1	exact					
+M050364	1	no_fire					
+M002805	1	exact					
+M003485	1	no_fire					
+M003498	1	no_fire					
+M003762	1	exact					
+M004075	1	partial	1	0	0	0	2
+M004245	1	no_fire					
+M004247	1	no_fire					
+M002046	0	partial	1	0	0	0	9
+M002315	0	no_fire					
+M002358	0	no_fire					
+M002361	0	no_fire					
+M002422	0	no_fire					
+M006003	1	no_fire					
+M006007	1	no_fire					
+M006129	1	no_fire					
+M006310	1	exact					
+M006317	1	partial	1	0	0	0	1
+M004430	1	no_fire					
+M004894	1	no_fire					
+M004905	1	no_fire					
+M005017	1	no_fire					
+M005020	1	exact					
+M005021	1	no_fire					
+M005049	1	exact					
+M005072	1	partial	1	0	0	0	3
+M005087	1	no_fire					
+M005129	1	no_fire					
+M005368	1	exact					
+M005421	1	no_fire					
+M005483	1	no_fire					
+M162635	1	no_fire					
+M162737	1	no_fire					
+M162745	1	no_fire					
+M162776	1	no_fire					
+M162777	1	no_fire					
+M162852	1	no_fire					
+M162862	1	no_fire					
+M162943	1	no_fire					
+M163173	1	no_fire					
+M163229	1	no_fire					
+M163270	1	no_fire					
+M163292	1	no_fire					
+M174898	1	exact					
+M175053	1	no_fire					
+M175054	1	no_fire					
+M175077	1	no_fire					
+M175091	1	no_fire					
+M175096	1	exact					
+M175099	1	no_fire					
+M175154	1	no_fire					
+M175156	1	no_fire					
+M175162	1	exact					
+M105880	2	no_fire					
+M105896	2	exact					
+M106285	2	exact					
+M106526	2	no_fire					
+M107346	2	no_fire					
+M107353	2	no_fire					
+M107354	2	no_fire					
+M107355	2	no_fire					
+M107356	2	no_fire					
+M107371	2	no_fire					
+M107380	2	no_fire					
+M108254	2	no_fire					
+M108352	2	partial	1	0	0	0	2
+M108670	2	no_fire					
+M108731	2	no_fire					
+M109181	2	no_fire					
+M109476	2	no_fire					
+M109477	2	no_fire					
+M109478	2	no_fire					
+M109552	2	exact					
+M109563	2	partial	1	0	0	0	2
+M109815	2	no_fire					
+M109838	2	no_fire					
+M144727	2	exact					
+M144945	2	exact					
+M144959	2	no_fire					
+M144974	2	exact					
+M144984	2	no_fire					
+M144989	2	false_fix_kept_line	2	0	1	0	2
+M145002	2	exact					
+M145003	2	exact					
+M145276	2	partial	1	0	0	0	3
+M145474	2	exact					
+M146421	2	partial	1	0	0	0	3
+M146511	2	alt_fix_changed_line	0	0	0	2	2
+M146727	2	no_fire					
+M073989	1	no_fire					
+M074708	1	no_fire					
+M074993	1	partial	8	0	0	0	9
+M075019	1	partial_consistent	1	1	0	0	3
+M075422	1	no_fire					
+M075718	1	exact					
+M144161	2	no_fire					
+M144213	2	no_fire					
+M144235	2	exact					
+M144278	2	no_fire					
+M144346	2	no_fire					
+M144442	2	exact					
+M144467	2	no_fire					
+M144494	2	exact					
+M144510	2	no_fire					
+M166104	2	exact					
+M166293	2	no_fire					
+M166425	2	exact					
+M166501	2	no_fire					
+M166679	2	partial	1	0	0	0	6
+M100298	2	no_fire					
+M100332	2	no_fire					
+M100334	2	no_fire					
+M100440	2	no_fire					
+M100601	2	no_fire					
+M100611	2	no_fire					
+M100613	2	no_fire					
+M101353	2	no_fire					
+M101484	2	no_fire					
+M101489	2	no_fire					
+M101503	2	no_fire					
+M101646	2	no_fire					
+M165057	2	no_fire					
+M165091	2	no_fire					
+M165097	2	no_fire					
+M165615	2	no_fire					
+M165673	2	no_fire					
+M165677	2	no_fire					
+M165680	2	no_fire					
+M165723	2	no_fire					
+M166053	2	no_fire					
+M005796	2	no_fire					
+M005867	2	no_fire					
+M005892	2	exact					
+M067691	1	exact					
+M068758	1	no_fire					
+M027625	1	no_fire					
+M028423	1	partial	1	0	0	0	2
+M156126	2	no_fire					
+M156127	2	no_fire					
+M156160	2	no_fire					
+M156298	2	no_fire					
+M156299	2	no_fire					
+M156300	2	partial_consistent	0	2	0	0	12
+M156304	2	no_fire					
+M156399	2	no_fire					
+M156421	2	no_fire					
+M156428	2	exact					
+M156434	2	no_fire					
+M156435	2	no_fire					
+M156514	2	exact					
+M156567	2	no_fire					
+M156762	2	partial	2	0	0	0	3
+M156919	2	exact					
