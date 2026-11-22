@@ -1,0 +1,74 @@
+#!/bin/bash
+# board: the message board for the RH port effort. A thin wrapper over `gh issue`.
+# Every agent (Claude, Codex, Gemini, human) reads and writes through this one command.
+#
+#   export BOARD_AGENT="worker-3 · opus-5.5-medium"     # who you are; required to write
+#
+#   board ls [LABEL]              open threads (optionally only one label, e.g. packet, rd, state:blocked)
+#   board read REF                a thread with all its comments
+#   board open TITLE [LABEL...]   start a thread; body on stdin; prints its number (reuses an existing title)
+#   board say REF [TEXT]          add a signed comment; text from args or stdin
+#   board state REF STATE         set the state: claimed fixing shipped pr-open merged blocked dropped
+#   board lore [TEXT]             record a fix pattern or gotcha every agent should know
+#
+# REF is an issue number or the start of a title: `board say P0224 "built 61 of 64"`.
+set -euo pipefail
+REPO=${BOARD_REPO:-jasonyandell/rh-board}
+STATES="claimed fixing shipped pr-open merged blocked dropped"
+
+die() { echo "board: $*" >&2; exit 1; }
+who() { echo "${BOARD_AGENT:?set BOARD_AGENT, e.g. \"worker-3 · opus-5.5-medium\"}"; }
+text() { if [ $# -gt 0 ]; then printf '%s\n' "$*"; else cat; fi; }
+
+# Resolve REF to an issue number. Lists rather than searches: search lags behind new issues.
+ref() {
+  case "$1" in ''|*[!0-9]*) ;; *) echo "$1"; return;; esac
+  local n
+  n=$(gh issue list -R "$REPO" --state all --limit 5000 --json number,title \
+        -q "[.[] | select(.title | startswith(\"$1\"))] | sort_by(.number) | .[0].number // empty")
+  [ -n "$n" ] || die "no thread titled '$1...'"
+  echo "$n"
+}
+
+cmd=${1:-help}; [ $# -gt 0 ] && shift
+case "$cmd" in
+  ls)
+    gh issue list -R "$REPO" --state open --limit 500 ${1:+--label "$1"} \
+      --json number,title,labels,updatedAt \
+      -q '.[] | "#\(.number)\t\(.title)\t[\([.labels[].name] | join(","))]\t\(.updatedAt)"' ;;
+  read)
+    [ $# -ge 1 ] || die "usage: board read REF"
+    gh issue view "$(ref "$1")" -R "$REPO" --comments ;;
+  open)
+    [ $# -ge 1 ] || die "usage: board open TITLE [LABEL...] < body"
+    title=$1; shift
+    existing=$(gh issue list -R "$REPO" --state all --limit 5000 --json number,title \
+                 -q "[.[] | select(.title == \"$title\")] | .[0].number // empty")
+    if [ -n "$existing" ]; then echo "$existing"; exit 0; fi
+    labels=(); for l in "$@"; do labels+=(--label "$l"); done
+    body="**[$(who)]**"$'\n\n'"$(cat)"
+    gh issue create -R "$REPO" --title "$title" --body "$body" ${labels[@]+"${labels[@]}"} | /usr/bin/grep -o '[0-9]*$' ;;
+  say)
+    [ $# -ge 1 ] || die "usage: board say REF [TEXT]"
+    n=$(ref "$1"); shift
+    body="**[$(who)]**"$'\n\n'"$(text "$@")"
+    gh issue comment "$n" -R "$REPO" --body "$body" >/dev/null && echo "posted to #$n" ;;
+  state)
+    [ $# -eq 2 ] || die "usage: board state REF STATE   ($STATES)"
+    n=$(ref "$1"); s=$2
+    echo " $STATES " | /usr/bin/grep -q " $s " || die "unknown state '$s' ($STATES)"
+    who >/dev/null
+    old=$(gh issue view "$n" -R "$REPO" --json labels -q '[.labels[].name | select(startswith("state:"))] | join(",")')
+    gh issue edit "$n" -R "$REPO" ${old:+--remove-label "$old"} --add-label "state:$s" >/dev/null
+    case "$s" in
+      merged)  gh issue close "$n" -R "$REPO" --reason completed >/dev/null ;;
+      dropped) gh issue close "$n" -R "$REPO" --reason "not planned" >/dev/null ;;
+    esac
+    echo "#$n -> $s" ;;
+  lore)
+    n=$(ref "Lore")
+    body="**[$(who)]**"$'\n\n'"$(text "$@")"
+    gh issue comment "$n" -R "$REPO" --body "$body" >/dev/null && echo "lore recorded on #$n" ;;
+  *)
+    sed -n '2,15p' "$0" | sed 's/^# \{0,1\}//' ;;
+esac
