@@ -1,0 +1,585 @@
+{
+ "upstream_commit": "990c354d292858e6d3e867af20005a78ed3ad7a1",
+ "train_patches": 980,
+ "test_patches": 411,
+ "train_window_utc": [
+  1795261528,
+  1795302886
+ ],
+ "test_window_utc": [
+  1795302897,
+  1795308177
+ ],
+ "train_depths": {
+  "0": 739,
+  "1": 240,
+  "2": 1
+ },
+ "test_depths": {
+  "0": 28,
+  "1": 285,
+  "2": 97,
+  "3": 1
+ },
+ "unchanged_modules": {
+  "before_test_window": 7803,
+  "in_test_window": 1798
+ },
+ "rules_mined_train": 241,
+ "infix_rules_selected": [
+  [
+   "fin_snoc",
+   "finSnoc"
+  ],
+  [
+   "map_to_map",
+   "spec"
+  ]
+ ],
+ "dropped_by_unchanged_filter": [
+  "Abelianization",
+  "continuous_finset_sum",
+  "prod_le_prod"
+ ],
+ "ceilings": {
+  "test_patches_ident_only": 129,
+  "test_ident_only_all_pairs_seen_in_train": 111,
+  "test_patches_with_any_pair_seen_in_train": 183
+ },
+ "tfae_rule_train": {
+  "fire": 26,
+  "clean": 26
+ },
+ "tfae_rule_test": {
+  "fire": 13,
+  "clean": 13
+ },
+ "variants": {
+  "strict (support>=2, precision>=0.9), no guard": {
+   "rules": 49,
+   "counts": {
+    "exact": 85,
+    "partial": 31,
+    "partial_consistent": 3,
+    "alt_fix_changed_line": 5,
+    "false_fix_kept_line": 3,
+    "no_fire": 284
+   },
+   "rates": {
+    "exact": 0.2068,
+    "partial": 0.0754,
+    "partial_consistent": 0.0073,
+    "alt_fix_changed_line": 0.0122,
+    "false_fix_kept_line": 0.0073,
+    "no_fire": 0.691
+   },
+   "exact_ci95": [
+    0.1705,
+    0.2486
+   ],
+   "partial_any_ci95": [
+    0.0598,
+    0.1134
+   ],
+   "differs_from_patch_ci95": [
+    0.0099,
+    0.0379
+   ],
+   "lines": {
+    "right": 49,
+    "consistent": 7,
+    "wrong_on_kept_line": 14,
+    "differs_on_changed_line": 8
+   },
+   "partial_share_of_patch_lines_done": 0.307,
+   "fires_on_unchanged": [
+    4,
+    9601
+   ],
+   "fires_on_unchanged_in_test_window": [
+    1,
+    1798
+   ],
+   "unchanged_fired_ids": [
+    "M115786",
+    "M152537",
+    "M068735",
+    "M124674"
+   ]
+  },
+  "strict + local-decl guard": {
+   "rules": 49,
+   "counts": {
+    "exact": 85,
+    "partial": 31,
+    "partial_consistent": 3,
+    "alt_fix_changed_line": 5,
+    "false_fix_kept_line": 2,
+    "no_fire": 285
+   },
+   "rates": {
+    "exact": 0.2068,
+    "partial": 0.0754,
+    "partial_consistent": 0.0073,
+    "alt_fix_changed_line": 0.0122,
+    "false_fix_kept_line": 0.0049,
+    "no_fire": 0.6934
+   },
+   "exact_ci95": [
+    0.1705,
+    0.2486
+   ],
+   "partial_any_ci95": [
+    0.0598,
+    0.1134
+   ],
+   "differs_from_patch_ci95": [
+    0.0083,
+    0.0347
+   ],
+   "lines": {
+    "right": 49,
+    "consistent": 7,
+    "wrong_on_kept_line": 2,
+    "differs_on_changed_line": 6
+   },
+   "partial_share_of_patch_lines_done": 0.307,
+   "fires_on_unchanged": [
+    4,
+    9601
+   ],
+   "fires_on_unchanged_in_test_window": [
+    1,
+    1798
+   ],
+   "unchanged_fired_ids": [
+    "M115786",
+    "M152537",
+    "M068735",
+    "M124674"
+   ]
+  },
+  "strict + guard + unchanged-module filter": {
+   "rules": 46,
+   "counts": {
+    "exact": 74,
+    "partial": 31,
+    "partial_consistent": 3,
+    "alt_fix_changed_line": 5,
+    "false_fix_kept_line": 2,
+    "no_fire": 296
+   },
+   "rates": {
+    "exact": 0.18,
+    "partial": 0.0754,
+    "partial_consistent": 0.0073,
+    "alt_fix_changed_line": 0.0122,
+    "false_fix_kept_line": 0.0049,
+    "no_fire": 0.7202
+   },
+   "exact_ci95": [
+    0.1459,
+    0.2201
+   ],
+   "partial_any_ci95": [
+    0.0598,
+    0.1134
+   ],
+   "differs_from_patch_ci95": [
+    0.0083,
+    0.0347
+   ],
+   "lines": {
+    "right": 51,
+    "consistent": 7,
+    "wrong_on_kept_line": 2,
+    "differs_on_changed_line": 6
+   },
+   "partial_share_of_patch_lines_done": 0.318,
+   "fires_on_unchanged": [
+    0,
+    9601
+   ],
+   "fires_on_unchanged_in_test_window": [
+    0,
+    1798
+   ],
+   "unchanged_fired_ids": []
+  },
+  "loose (support>=1, precision>=0.9) + guard": {
+   "rules": 124,
+   "counts": {
+    "exact": 89,
+    "partial": 30,
+    "partial_consistent": 4,
+    "alt_fix_changed_line": 6,
+    "false_fix_kept_line": 3,
+    "no_fire": 279
+   },
+   "rates": {
+    "exact": 0.2165,
+    "partial": 0.073,
+    "partial_consistent": 0.0097,
+    "alt_fix_changed_line": 0.0146,
+    "false_fix_kept_line": 0.0073,
+    "no_fire": 0.6788
+   },
+   "exact_ci95": [
+    0.1794,
+    0.2589
+   ],
+   "partial_any_ci95": [
+    0.0598,
+    0.1134
+   ],
+   "differs_from_patch_ci95": [
+    0.0116,
+    0.0411
+   ],
+   "lines": {
+    "right": 51,
+    "consistent": 9,
+    "wrong_on_kept_line": 3,
+    "differs_on_changed_line": 7
+   },
+   "partial_share_of_patch_lines_done": 0.324,
+   "fires_on_unchanged": [
+    12,
+    9601
+   ],
+   "fires_on_unchanged_in_test_window": [
+    1,
+    1798
+   ],
+   "unchanged_fired_ids": [
+    "M027495",
+    "M027734",
+    "M036255",
+    "M063460",
+    "M080270",
+    "M119580",
+    "M115786",
+    "M152537",
+    "M146250",
+    "M109795",
+    "M068735",
+    "M124674"
+   ]
+  },
+  "permissive (support>=2, precision>=0.5) + guard": {
+   "rules": 65,
+   "counts": {
+    "exact": 95,
+    "partial": 34,
+    "partial_consistent": 5,
+    "alt_fix_changed_line": 10,
+    "false_fix_kept_line": 11,
+    "no_fire": 256
+   },
+   "rates": {
+    "exact": 0.2311,
+    "partial": 0.0827,
+    "partial_consistent": 0.0122,
+    "alt_fix_changed_line": 0.0243,
+    "false_fix_kept_line": 0.0268,
+    "no_fire": 0.6229
+   },
+   "exact_ci95": [
+    0.193,
+    0.2743
+   ],
+   "partial_any_ci95": [
+    0.0702,
+    0.1271
+   ],
+   "differs_from_patch_ci95": [
+    0.0337,
+    0.0768
+   ],
+   "lines": {
+    "right": 58,
+    "consistent": 12,
+    "wrong_on_kept_line": 18,
+    "differs_on_changed_line": 14
+   },
+   "partial_share_of_patch_lines_done": 0.276,
+   "fires_on_unchanged": [
+    27,
+    9601
+   ],
+   "fires_on_unchanged_in_test_window": [
+    11,
+    1798
+   ],
+   "unchanged_fired_ids": [
+    "M033270",
+    "M048408",
+    "M069961",
+    "M119653",
+    "M115222",
+    "M115786",
+    "M173322",
+    "M171025",
+    "M153524",
+    "M161227",
+    "M152537",
+    "M168065",
+    "M171812",
+    "M068735",
+    "M162128",
+    "M166326",
+    "M173161",
+    "M125228",
+    "M170030",
+    "M170100",
+    "M124674",
+    "M055319",
+    "M066174",
+    "M163657",
+    "M168990",
+    "M005031",
+    "M005880"
+   ]
+  },
+  "strict + guard + infix rules": {
+   "rules": 51,
+   "counts": {
+    "exact": 85,
+    "partial": 31,
+    "partial_consistent": 3,
+    "alt_fix_changed_line": 5,
+    "false_fix_kept_line": 2,
+    "no_fire": 285
+   },
+   "rates": {
+    "exact": 0.2068,
+    "partial": 0.0754,
+    "partial_consistent": 0.0073,
+    "alt_fix_changed_line": 0.0122,
+    "false_fix_kept_line": 0.0049,
+    "no_fire": 0.6934
+   },
+   "exact_ci95": [
+    0.1705,
+    0.2486
+   ],
+   "partial_any_ci95": [
+    0.0598,
+    0.1134
+   ],
+   "differs_from_patch_ci95": [
+    0.0083,
+    0.0347
+   ],
+   "lines": {
+    "right": 49,
+    "consistent": 7,
+    "wrong_on_kept_line": 2,
+    "differs_on_changed_line": 6
+   },
+   "partial_share_of_patch_lines_done": 0.307,
+   "fires_on_unchanged": [
+    4,
+    9601
+   ],
+   "fires_on_unchanged_in_test_window": [
+    1,
+    1798
+   ],
+   "unchanged_fired_ids": [
+    "M115786",
+    "M152537",
+    "M068735",
+    "M124674"
+   ]
+  },
+  "strict + guard + TFAE index rule (recommended)": {
+   "rules": 49,
+   "counts": {
+    "exact": 95,
+    "partial": 34,
+    "partial_consistent": 3,
+    "alt_fix_changed_line": 5,
+    "false_fix_kept_line": 2,
+    "no_fire": 272
+   },
+   "rates": {
+    "exact": 0.2311,
+    "partial": 0.0827,
+    "partial_consistent": 0.0073,
+    "alt_fix_changed_line": 0.0122,
+    "false_fix_kept_line": 0.0049,
+    "no_fire": 0.6618
+   },
+   "exact_ci95": [
+    0.193,
+    0.2743
+   ],
+   "partial_any_ci95": [
+    0.066,
+    0.1216
+   ],
+   "differs_from_patch_ci95": [
+    0.0083,
+    0.0347
+   ],
+   "lines": {
+    "right": 53,
+    "consistent": 7,
+    "wrong_on_kept_line": 2,
+    "differs_on_changed_line": 6
+   },
+   "partial_share_of_patch_lines_done": 0.317,
+   "fires_on_unchanged": [
+    4,
+    9601
+   ],
+   "fires_on_unchanged_in_test_window": [
+    1,
+    1798
+   ],
+   "unchanged_fired_ids": [
+    "M115786",
+    "M152537",
+    "M068735",
+    "M124674"
+   ]
+  },
+  "all mined pairs (no safety filter)": {
+   "rules": 241,
+   "counts": {
+    "exact": 0,
+    "partial": 0,
+    "partial_consistent": 0,
+    "alt_fix_changed_line": 0,
+    "false_fix_kept_line": 411,
+    "no_fire": 0
+   },
+   "rates": {
+    "exact": 0.0,
+    "partial": 0.0,
+    "partial_consistent": 0.0,
+    "alt_fix_changed_line": 0.0,
+    "false_fix_kept_line": 1.0,
+    "no_fire": 0.0
+   },
+   "exact_ci95": [
+    0,
+    0.0093
+   ],
+   "partial_any_ci95": [
+    0,
+    0.0093
+   ],
+   "differs_from_patch_ci95": [
+    0.9907,
+    1
+   ],
+   "lines": {
+    "right": 23,
+    "consistent": 24,
+    "wrong_on_kept_line": 54457,
+    "differs_on_changed_line": 984
+   },
+   "partial_share_of_patch_lines_done": null,
+   "fires_on_unchanged": [
+    9543,
+    9601
+   ],
+   "fires_on_unchanged_in_test_window": [
+    1790,
+    1798
+   ],
+   "unchanged_fired_ids": [
+    "M000029",
+    "M000032",
+    "M000033",
+    "M000061",
+    "M000084",
+    "M000384",
+    "M000425",
+    "M000522",
+    "M000551",
+    "M000559",
+    "M000596",
+    "M000599",
+    "M000704",
+    "M000756",
+    "M000757",
+    "M000763",
+    "M000831",
+    "M000884",
+    "M000948",
+    "M001021",
+    "M001082",
+    "M001149",
+    "M001273",
+    "M001303",
+    "M001560",
+    "M001565",
+    "M001677",
+    "M001678",
+    "M002068",
+    "M002078"
+   ]
+  }
+ },
+ "recommended_by_depth": {
+  "0": {
+   "n": 28,
+   "exact": 9,
+   "partial": 3,
+   "differs": 0
+  },
+  "1": {
+   "n": 285,
+   "exact": 65,
+   "partial": 27,
+   "differs": 5
+  },
+  "2": {
+   "n": 97,
+   "exact": 21,
+   "partial": 7,
+   "differs": 2
+  },
+  "3": {
+   "n": 1,
+   "exact": 0,
+   "partial": 0,
+   "differs": 0
+  }
+ },
+ "learning_curve": [
+  {
+   "train_patches": 98,
+   "rules": 13,
+   "test_exact": 61,
+   "test_exact_rate": 0.1484
+  },
+  {
+   "train_patches": 245,
+   "rules": 30,
+   "test_exact": 79,
+   "test_exact_rate": 0.1922
+  },
+  {
+   "train_patches": 490,
+   "rules": 38,
+   "test_exact": 76,
+   "test_exact_rate": 0.1849
+  },
+  {
+   "train_patches": 735,
+   "rules": 46,
+   "test_exact": 83,
+   "test_exact_rate": 0.2019
+  },
+  {
+   "train_patches": 980,
+   "rules": 49,
+   "test_exact": 85,
+   "test_exact_rate": 0.2068
+  }
+ ]
+}

@@ -25,13 +25,22 @@ All workers share one Mac. What we have measured:
 - Throughput is about 3,600 modules an hour at 6 parallel Lean processes and barely higher at 18. More parallel builds than that buy nothing.
 - A work tree is about 12 GB. `port_build.py prepare WORK` makes one.
 
-Two builds in the same tree collide. Give each concurrent worker its own work tree, or run their builds one at a time. Start with two or three workers and raise the count only when the board shows workers waiting on agents, not on builds.
+Two builds in the same tree collide, so give each concurrent worker its own tree. On this Mac a tree costs almost no disk: `cp -cRp SOURCE_TREE WORKER_TREE` makes a copy-on-write clone in seconds, and Lake accepts the cloned build outputs without rebuilding. Clone from a tree that no build is writing to.
+
+Start with two or three workers and raise the count only when the board shows workers waiting on agents, not on builds.
 
 ## Workers
 
 - **Claude**: subagents on Opus 5.5 at medium effort. This is the default; it has handled every packet so far.
-- **Codex**: launched from Claude Code with the `codex` skill.
+- **Codex**: Sol 6.2 (`gpt-6.2-sol`) at medium effort, launched from Claude Code with the `codex` skill. Tested on two real failing modules: it fixed both within the rules in under two minutes.
 - Sign each worker's posts with a distinct `BOARD_AGENT` so results can be compared by model.
+
+### Briefing a Codex worker
+
+- Point it at its own cloned tree and give the exact build command, with `ELAN_HOME` set to the shared toolchain folder. It only reads the toolchain.
+- In its default sandbox Codex can edit files, run `lake` and reach GitHub, but it cannot write to git. That is all a worker needs: it fixes modules and reports, and you commit and ship.
+- Paste the rules from [WORKER.md](WORKER.md) into the brief and ask for a fixed final format. Codex starts with no context.
+- Check its work yourself before shipping: rebuild the modules, list every file it touched, and read the diff against the pinned source.
 
 ## Rules
 
