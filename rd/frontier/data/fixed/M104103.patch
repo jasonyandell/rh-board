@@ -1,0 +1,22 @@
+--- a/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Psdcone.lean
++++ b/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/Psdcone.lean
+@@ -27,7 +27,7 @@
+     refine isClosed_iInter fun w => isClosed_iInter fun x => ?_
+     refine isClosed_le continuous_const ?_
+     unfold Finsupp.sum
+-    refine continuous_finset_sum _ fun i _ => continuous_finset_sum _ fun j _ => ?_
++    refine continuous_finsetSum _ fun i _ => continuous_finsetSum _ fun j _ => ?_
+     exact (continuous_const.mul (hc w i j)).mul continuous_const
+   · intro c hc k hk w
+     show (mat (c • k) w).PosSemidef
+@@ -48,8 +48,8 @@
+           simp }
+     have hf : Continuous f := by
+       show Continuous (fun h : HS L N => ∑ w, ((mat h w).trace).re)
+-      refine continuous_finset_sum _ fun w _ => Complex.continuous_re.comp ?_
+-      exact continuous_finset_sum _ fun i _ => hc w i i
++      refine continuous_finsetSum _ fun w _ => Complex.continuous_re.comp ?_
++      exact continuous_finsetSum _ fun i _ => hc w i i
+     refine ⟨⟨f, hf⟩, ?_⟩
+     intro k hk hk0
+     have hw : ∃ w, mat k w ≠ 0 := by

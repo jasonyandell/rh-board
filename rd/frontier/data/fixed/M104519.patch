@@ -1,0 +1,15 @@
+--- a/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/PairSeqVerticalCycleIsBoundaryOfSlicesExact.lean
++++ b/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LiteratureResults/KTheoryStability/HomologicalStability/LinkExactnessStability/PairSeqVerticalCycleIsBoundaryOfSlicesExact.lean
+@@ -12,10 +12,10 @@
+ open Classical in
+ lemma sum_apply_pair {V W : Type} (T : Finset (List V)) (g : List V → List W →₀ ℤ) (l : List V) (w : List W) :
+     (∑ l' ∈ T, Finsupp.mapDomain (fun w => (l', w)) (g l')) (l, w) = if l ∈ T then g l w else 0 := by
+-  rw [Finsupp.finset_sum_apply]
++  rw [Finsupp.finsetSum_apply]
+   split_ifs with h
+   · rw [Finset.sum_eq_single l]
+-    · exact Finsupp.mapDomain_apply (inj_pair l) _ _
++    · exact Finsupp.mapDomain_apply_of_injective (inj_pair l) _ _
+     · intro l' _ hne
+       apply Finsupp.mapDomain_notin_range
+       rintro ⟨w', hw'⟩

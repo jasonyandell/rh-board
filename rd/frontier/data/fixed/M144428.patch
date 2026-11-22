@@ -1,0 +1,20 @@
+--- a/src/Formalism/FlagUnipotentLattices/MinkowskiFactorialBounds/DetMulEqSumProdMulDetSubmatrix.lean
++++ b/src/Formalism/FlagUnipotentLattices/MinkowskiFactorialBounds/DetMulEqSumProdMulDetSubmatrix.lean
+@@ -370,7 +370,7 @@
+     have hgle : ∀ π, g π ≤ P := by
+       intro π
+       calc g π ≤ ∏ i, max 1 ‖c (I (π i))‖ := by
+-            refine Finset.prod_le_prod (fun i _ => norm_nonneg _) fun i _ => ?_
++            refine Finset.prod_le_prod₀ (fun i _ => norm_nonneg _) fun i _ => ?_
+             simp only [hW, Matrix.submatrix_apply, Matrix.of_apply]
+             split_ifs
+             · exact le_max_right _ _
+@@ -445,7 +445,7 @@
+       rw [norm_mul, norm_prod]
+       apply mul_le_mul _ (hY f) (norm_nonneg _) (by positivity)
+       calc ∏ i, ‖X i (f i)‖ ≤ ∏ _i : Fin t, ρ :=
+-            Finset.prod_le_prod (fun _ _ => norm_nonneg _) (fun i _ => hX _ _)
++            Finset.prod_le_prod₀ (fun _ _ => norm_nonneg _) (fun i _ => hX _ _)
+         _ = ρ ^ t := by simp
+         _ ≤ ρ ^ N := pow_le_pow_right₀ hρ htN
+     · obtain ⟨a, b, hab, hne⟩ : ∃ a b, f a = f b ∧ a ≠ b := by

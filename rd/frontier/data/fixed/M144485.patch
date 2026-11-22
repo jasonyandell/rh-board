@@ -1,0 +1,29 @@
+--- a/src/Formalism/FormalDegreeBessel/FormalDegreeRatio/BFCell.lean
++++ b/src/Formalism/FormalDegreeBessel/FormalDegreeRatio/BFCell.lean
+@@ -16,7 +16,7 @@
+ 
+ lemma hpk_mul_apply' (A : Matrix (Fin (2 * r + k + 1)) (Fin (2 * r + k + 1)) ℂ)
+     (p j : Fin (2 * r + k + 1)) : (Hpk k r * A) p j = sgn k r p * A (sig k r p) j := by
+-  rw [mul_apply, Finset.sum_eq_single (sig k r p)]
++  rw [Matrix.mul_apply, Finset.sum_eq_single (sig k r p)]
+   · rw [Hpk_eq, if_pos rfl]
+   · intro q _ hq; rw [Hpk_eq, if_neg hq, zero_mul]
+   · intro h; exact absurd (Finset.mem_univ _) h
+@@ -125,7 +125,7 @@
+   intro k r c μ hc hμ
+   show (bigCell k r c μ)ᴴ * Hpk k r * bigCell k r c μ = Hpk k r
+   ext i j
+-  rw [Matrix.mul_assoc, mul_apply]
++  rw [Matrix.mul_assoc, Matrix.mul_apply]
+   simp only [conjTranspose_apply, hpk_mul_apply']
+   have hi := i.isLt
+   have hj := j.isLt
+@@ -168,7 +168,7 @@
+         rw [hj1]
+         simp only [mid_mid]
+         have key := congrFun (congrFun hμ q0) q1
+-        rw [Matrix.mul_assoc, mul_apply] at key
++        rw [Matrix.mul_assoc, Matrix.mul_apply] at key
+         simp only [Hb, diagonal_mul, conjTranspose_apply] at key
+         have hsg : ∀ q : Fin (k + 1), sgn k r (wI k r q) = (if q = Fin.last k then -1 else 1) := by
+           intro q

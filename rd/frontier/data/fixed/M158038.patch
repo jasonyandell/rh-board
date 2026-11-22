@@ -1,0 +1,19 @@
+--- a/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/ProdFactorialSupportSubSingle.lean
++++ b/src/Formalism/RealPlaceAnalysis/RealPlaceTaylor/ProdFactorialSupportSubSingle.lean
+@@ -26,14 +26,14 @@
+     fischerInner_eq_sum_of_subset f2 g (f1.support ∪ f2.support) Finset.subset_union_right,
+     ← Finset.sum_add_distrib]
+   refine Finset.sum_congr rfl fun m _ => ?_
+-  simp only [coeff_add]; ring
++  simp only [MvPolynomial.coeff_add]; ring
+ 
+ lemma fischerInner_add_right (f g1 g2 : MvPolynomial σ ℂ) :
+     fockF f (g1 + g2) = fockF f g1 + fockF f g2 := by
+   unfold fockF
+   rw [← Finset.sum_add_distrib]
+   refine Finset.sum_congr rfl fun m _ => ?_
+-  simp only [coeff_add, star_add]; ring
++  simp only [MvPolynomial.coeff_add, star_add]; ring
+ 
+ def fischerInnerLeftHom (g : MvPolynomial σ ℂ) : MvPolynomial σ ℂ →+ ℂ :=
+   AddMonoidHom.mk' (fun f => fockF f g) (fun a b => fischerInner_add_left a b g)

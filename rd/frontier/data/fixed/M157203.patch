@@ -1,0 +1,11 @@
+--- a/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/UnimodularLocalStandard/RelIdxNeZeroOfLeLeft.lean
++++ b/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/UnimodularLocalStandard/RelIdxNeZeroOfLeLeft.lean
+@@ -9,7 +9,7 @@
+ section Idx
+ variable {V : Type*} [AddCommGroup V] [Module ℂ V]
+ 
+-def smulHom (w : ℂ) : V →+ V := DistribMulAction.toAddMonoidHom V w
++def smulHom (w : ℂ) : V →+ V := DistribSMul.toAddMonoidHom V w
+ 
+ @[simp] lemma smulHom_apply (w : ℂ) (v : V) : smulHom w v = w • v := rfl
+ 

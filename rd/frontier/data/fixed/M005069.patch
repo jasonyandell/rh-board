@@ -1,0 +1,70 @@
+--- a/src/Development/AbelianVarietyTheory/Definitions/ThetaMetrics/SumFinsuppAntidiagProdPowDivMultiFactorial.lean
++++ b/src/Development/AbelianVarietyTheory/Definitions/ThetaMetrics/SumFinsuppAntidiagProdPowDivMultiFactorial.lean
+@@ -79,7 +79,7 @@
+   rw [l1Norm_eq_sum_of_subset (s := P.support ∪ Q.support) support_add,
+     l1Norm_eq_sum_of_subset (s := P.support ∪ Q.support) subset_union_left,
+     l1Norm_eq_sum_of_subset (s := P.support ∪ Q.support) subset_union_right, ← sum_add_distrib]
+-  exact sum_le_sum fun α _ ↦ by rw [coeff_add]; exact norm_add_le _ _
++  exact sum_le_sum fun α _ ↦ by rw [MvPolynomial.coeff_add]; exact norm_add_le _ _
+ 
+ theorem l1Norm_sum_le {ι : Type*} (s : Finset ι) (f : ι → MvPolynomial σ K) :
+     l1Norm (∑ i ∈ s, f i) ≤ ∑ i ∈ s, l1Norm (f i) :=
+@@ -128,7 +128,7 @@
+ theorem l1Norm_prod_pow_le [NormOneClass K] {ι : Type*} (s : Finset ι)
+     (f : ι → MvPolynomial σ K) (c : ι → ℕ) (B : ι → ℝ) (h : ∀ i ∈ s, l1Norm (f i) ≤ B i) :
+     l1Norm (∏ i ∈ s, f i ^ c i) ≤ ∏ i ∈ s, B i ^ c i :=
+-  (l1Norm_prod_le _ _).trans <| prod_le_prod (fun _ _ ↦ l1Norm_nonneg _) fun i hi ↦
++  (l1Norm_prod_le _ _).trans <| prod_le_prod₀ (fun _ _ ↦ l1Norm_nonneg _) fun i hi ↦
+     (l1Norm_pow_le _ _).trans (pow_le_pow_left₀ (l1Norm_nonneg _) (h i hi) _)
+ 
+ theorem l1Norm_rename_of_injective {f : σ → τ} (hf : Function.Injective f)
+@@ -192,7 +192,7 @@
+   rw [h1]
+   refine (l1Norm_prod_le _ _).trans ?_
+   rw [← card_univ, ← prod_const]
+-  exact prod_le_prod (fun _ _ ↦ l1Norm_nonneg _) fun _ _ ↦ h _ _
++  exact prod_le_prod₀ (fun _ _ ↦ l1Norm_nonneg _) fun _ _ ↦ h _ _
+ 
+ theorem factorial_mul_pow_le (i : ℕ) {R : ℝ} (hR : 0 ≤ R) :
+     (i.factorial : ℝ) * R ^ i ≤ (i * R) ^ i := by
+@@ -251,7 +251,7 @@
+   refine norm_sum_le_of_le _ fun α _ ↦ (norm_mul_le _ _).trans ?_
+   rw [Finsupp.degree_apply, ← prod_pow_eq_pow_sum]
+   refine mul_le_mul_of_nonneg_left ((Finset.norm_prod_le _ _).trans ?_) (norm_nonneg _)
+-  exact prod_le_prod (fun _ _ ↦ norm_nonneg _) fun i _ ↦
++  exact prod_le_prod₀ (fun _ _ ↦ norm_nonneg _) fun i _ ↦
+     (norm_pow_le _ _).trans (pow_le_pow_left₀ (norm_nonneg _) (h i) _)
+ 
+ theorem norm_eval_le_of_le [NormOneClass K] (x : σ → K) (P : MvPolynomial σ K) {R : ℝ}
+@@ -477,7 +477,7 @@
+ 
+ theorem fockInner_add_left (P P' Q : MvPolynomial σ 𝕜) :
+     fockInner (P + P') Q = fockInner P Q + fockInner P' Q := by
+-  simp only [fockInner_eq_sum_of_subset_right _ (subset_refl Q.support), coeff_add, add_mul,
++  simp only [fockInner_eq_sum_of_subset_right _ (subset_refl Q.support), MvPolynomial.coeff_add, add_mul,
+     mul_add, sum_add_distrib]
+ 
+ theorem fockInner_smul_left (c : 𝕜) (P Q : MvPolynomial σ 𝕜) :
+@@ -487,7 +487,7 @@
+ 
+ theorem fockInner_add_right (P Q Q' : MvPolynomial σ 𝕜) :
+     fockInner P (Q + Q') = fockInner P Q + fockInner P Q' := by
+-  simp only [fockInner, coeff_add, map_add, mul_add, sum_add_distrib]
++  simp only [fockInner, MvPolynomial.coeff_add, map_add, mul_add, sum_add_distrib]
+ 
+ theorem fockInner_smul_right (c : 𝕜) (P Q : MvPolynomial σ 𝕜) :
+     fockInner P (c • Q) = starRingEnd 𝕜 c * fockInner P Q := by
+@@ -547,11 +547,11 @@
+   · rw [l2Norm_eq_sqrt_sum_of_subset (s := {0, Finsupp.single 0 1})
+       (support_add.trans (union_subset (support_monomial_subset.trans (by simp))
+         (support_monomial_subset.trans (by simp)))), sum_pair hne.symm]
+-    simp only [coeff_add, coeff_monomial, hne, hne.symm, if_true, if_false]
++    simp only [MvPolynomial.coeff_add, coeff_monomial, hne, hne.symm, if_true, if_false]
+     rw [Real.sqrt_eq_iff_mul_self_eq_of_pos (by norm_num)]
+     norm_num
+   · refine le_antisymm ((supCoeff_le_iff (by norm_num)).mpr fun β ↦ ?_) ?_
+-    · simp only [coeff_add, coeff_monomial]
++    · simp only [MvPolynomial.coeff_add, coeff_monomial]
+       split_ifs with h1 h2
+       · exact (hne (h2.trans h1.symm)).elim
+       all_goals norm_num

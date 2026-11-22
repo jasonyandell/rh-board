@@ -1,0 +1,11 @@
+--- a/src/Development/AbelianVarietyTheory/Definitions/TwistedInnerProducts/LeviEmbMemNormalizerLower.lean
++++ b/src/Development/AbelianVarietyTheory/Definitions/TwistedInnerProducts/LeviEmbMemNormalizerLower.lean
+@@ -81,7 +81,7 @@
+   map_mul' x y := by
+     ext i j
+     show ((x.1 : Matrix n n R) * (y.1 : Matrix n n R)) _ _ = _
+-    simp only [mul_apply, submatrix_apply]
++    simp only [Matrix.mul_apply, submatrix_apply]
+     rw [← e.sum_comp, Fintype.sum_sigma, Finset.sum_eq_single a]
+     · intro b _ hb
+       refine Finset.sum_eq_zero fun l _ => ?_

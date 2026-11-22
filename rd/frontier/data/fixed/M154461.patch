@@ -1,0 +1,11 @@
+--- a/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/BetaUniqueness/EqZeroOfNormLtOne.lean
++++ b/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/BetaUniqueness/EqZeroOfNormLtOne.lean
+@@ -99,7 +99,7 @@
+     rw [norm_prod, ← Finset.mul_prod_erase _ _ (Finset.mem_univ σ0)]
+     have h0 : ‖σ0 y‖ < 1 := h σ0.toRingHom
+     have h1 : ∏ σ ∈ Finset.univ.erase σ0, ‖σ y‖ ≤ 1 :=
+-      Finset.prod_le_one (fun _ _ => norm_nonneg _) (fun σ _ => (h σ.toRingHom).le)
++      Finset.prod_le_one₀ (fun _ _ => norm_nonneg _) (fun σ _ => (h σ.toRingHom).le)
+     calc ‖σ0 y‖ * ∏ σ ∈ Finset.univ.erase σ0, ‖σ y‖ ≤ ‖σ0 y‖ * 1 :=
+           mul_le_mul_of_nonneg_left h1 (norm_nonneg _)
+       _ < 1 := by rwa [mul_one]

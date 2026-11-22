@@ -1,0 +1,56 @@
+--- a/src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CriticalThresholdLowerBound.lean
++++ b/src/Formalism/HermitianCurvature/HermitianCurvatureProofs/CriticalThresholdLowerBound.lean
+@@ -94,7 +94,7 @@
+ lemma one_le_prod_real {α : Type} (s : Finset α) (f : α → ℝ) (h : ∀ i ∈ s, 1 ≤ f i) :
+     1 ≤ ∏ i ∈ s, f i := by
+   have h1 : ∏ i ∈ s, (1:ℝ) ≤ ∏ i ∈ s, f i :=
+-    Finset.prod_le_prod (fun i _ => zero_le_one) h
++    Finset.prod_le_prod₀ (fun i _ => zero_le_one) h
+   simpa using h1
+ 
+ lemma prodb_ge_one (c : Cfg) (h : c.Ok) : 1 ≤ c.prodb := by
+@@ -153,7 +153,7 @@
+           | (rw [Finset.prod_const, Nat.card_Icc, Nat.add_sub_cancel]; rfl)
+           | (unfold Cfg.prodb; rw [Finset.prod_const, Nat.card_Icc, Nat.add_sub_cancel])
+       _ ≤ ∏ i ∈ Icc 1 (c.k - 1), ∏ j ∈ Icc 1 c.m, (c.v i + c.b j) := by
+-          apply Finset.prod_le_prod
++          apply Finset.prod_le_prod₀
+           · intro i _
+             apply Finset.prod_nonneg
+             intro j hj
+@@ -161,7 +161,7 @@
+             linarith [b_ge_one c h j hj.1 hj.2]
+           · intro i hi
+             rw [Finset.mem_Icc] at hi
+-            apply Finset.prod_le_prod
++            apply Finset.prod_le_prod₀
+             · intro j hj
+               rw [Finset.mem_Icc] at hj
+               linarith [b_ge_one c h j hj.1 hj.2]
+@@ -508,7 +508,7 @@
+   have hp : c.prodb ≤ bb ^ (2 * c.m) := by
+     unfold Cfg.prodb
+     calc ∏ j ∈ Icc 1 c.m, c.b j ≤ ∏ j ∈ Icc 1 c.m, bb ^ 2 := by
+-          apply Finset.prod_le_prod
++          apply Finset.prod_le_prod₀
+           · intro j hj
+             rw [Finset.mem_Icc] at hj
+             linarith [b_ge_one c h j hj.1 hj.2]
+@@ -669,7 +669,7 @@
+     ring
+   have hA1 : ∏ i ∈ Ioc 1 (c.k - 1), (c.a - c.u de i) ≤ c.a ^ (c.k - 2) := by
+     calc ∏ i ∈ Ioc 1 (c.k - 1), (c.a - c.u de i) ≤ ∏ i ∈ Ioc 1 (c.k - 1), c.a := by
+-          apply Finset.prod_le_prod
++          apply Finset.prod_le_prod₀
+           · intro i hi
+             rw [Finset.mem_Ioc] at hi
+             obtain ⟨j, rfl⟩ : ∃ j, i = j + 1 := ⟨i - 1, by omega⟩
+@@ -710,7 +710,7 @@
+     rw [hbt]
+     calc ∏ i ∈ Icc 1 (c.k - 2), (c.u de (i + 1) + c.bp)
+         ≤ ∏ i ∈ Icc 1 (c.k - 2), (c.bp + 4 * (c.k:ℝ) * c.Del) := by
+-          apply Finset.prod_le_prod
++          apply Finset.prod_le_prod₀
+           · intro i hi
+             rw [Finset.mem_Icc] at hi
+             have hb := u_mid_bounds c h de hw i hi.1 (by omega)

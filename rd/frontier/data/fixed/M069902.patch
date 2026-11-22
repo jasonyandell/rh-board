@@ -1,0 +1,11 @@
+--- a/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsTraceNeZeroFiniteLocalZmodPrimePow.lean
++++ b/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/ExistsTraceNeZeroFiniteLocalZmodPrimePow.lean
+@@ -65,7 +65,7 @@
+     intro q
+     simp only [aeval_def, eval₂_map, hcomp]
+   haveI : HenselianLocalRing B := henselian_of_finite B
+-  have H2 := ((HenselianLocalRing.TFAE B).out 0 1).mp ‹_›
++  have H2 := ((HenselianLocalRing.TFAE B).out 1 2).mp ‹_›
+   obtain ⟨ω, hω, hωa⟩ := H2 (h.map (algebraMap _ B)) (hmon.map _) a
+     (by rw [key, hhp]; exact hpa)
+     (by rw [derivative_map, key, ← derivative_map, hhp]; exact hpa')

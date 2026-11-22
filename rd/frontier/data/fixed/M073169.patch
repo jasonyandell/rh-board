@@ -1,0 +1,11 @@
+--- a/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PeriodDataComparison.lean
++++ b/src/Development/AbelianVarietyTheory/Proofs/InertiaEigenvalues/PeriodDataComparison.lean
+@@ -24,7 +24,7 @@
+     [IsScalarTower K₀ K BdR] [IsScalarTower Qp K₀ BdR]
+     (PD : _root_.Formalism.WeaklyAdmissibleFiltrations.PeriodData G Qp K₀ K B BdR) in
+ theorem _root_.GlobalTheory.SplitJump.fil_mono {a b : ℤ} (h : a ≤ b) : PD.Fil b ≤ PD.Fil a := by
+-  induction b, h using Int.le_induction with
++  induction b, h using Int.leInduction with
+   | base => exact le_rfl
+   | succ b _ ih => exact (PD.Fil_anti b).trans ih
+ 

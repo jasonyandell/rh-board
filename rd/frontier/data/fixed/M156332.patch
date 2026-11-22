@@ -1,0 +1,26 @@
+--- a/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/PositiveDefiniteness/PositiveDefiniteSecond.lean
++++ b/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/PositiveDefiniteness/PositiveDefiniteSecond.lean
+@@ -13,9 +13,9 @@
+     (v : Fin k → ℂ) : 0 ≤ (star v ⬝ᵥ (M *ᵥ v)).re := by
+   have hQc : Continuous fun w : Fin k → ℂ => (star w ⬝ᵥ (M *ᵥ w)).re := by
+     show Continuous fun w : Fin k → ℂ => (∑ i, star (w i) * ∑ j, M i j * w j).re
+-    exact Complex.continuous_re.comp (continuous_finset_sum _ fun i _ =>
++    exact Complex.continuous_re.comp (continuous_finsetSum _ fun i _ =>
+       (continuous_star.comp (continuous_apply i)).mul
+-        (continuous_finset_sum _ fun j _ => continuous_const.mul (continuous_apply j)))
++        (continuous_finsetSum _ fun j _ => continuous_const.mul (continuous_apply j)))
+   let ψ : (Fin k → ℝ) × (Fin k → ℝ) → (Fin k → ℂ) := fun p i => (p.1 i : ℂ) + (p.2 i : ℂ) * z
+   have hψ : Continuous ψ := by fun_prop
+   let d : (Fin k → ℚ) × (Fin k → ℚ) → (Fin k → ℝ) × (Fin k → ℝ) :=
+@@ -56,9 +56,9 @@
+       have hQc : Continuous fun a : Fin k → ℝ =>
+           (star (fun i => (a i : ℂ)) ⬝ᵥ (N *ᵥ fun i => (a i : ℂ))).re := by
+         show Continuous fun a : Fin k → ℝ => (∑ i, star ((a i : ℂ)) * ∑ j, N i j * (a j : ℂ)).re
+-        exact Complex.continuous_re.comp (continuous_finset_sum _ fun i _ =>
++        exact Complex.continuous_re.comp (continuous_finsetSum _ fun i _ =>
+           (continuous_star.comp (Complex.continuous_ofReal.comp (continuous_apply i))).mul
+-            (continuous_finset_sum _ fun j _ =>
++            (continuous_finsetSum _ fun j _ =>
+               continuous_const.mul (Complex.continuous_ofReal.comp (continuous_apply j))))
+       have hd : DenseRange (fun α : Fin k → ℚ => fun i => (α i : ℝ)) :=
+         DenseRange.piMap fun _ => Rat.denseRange_cast

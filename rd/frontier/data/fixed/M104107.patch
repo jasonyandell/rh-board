@@ -1,0 +1,11 @@
+--- a/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/RynePlace.lean
++++ b/src/Development/AutomorphicArithmetic/AutomorphicVarieties/HermiteNormalForms/RynePlace.lean
+@@ -20,7 +20,7 @@
+   have hlt : ∀ w : InfinitePlace L, w (x : L) ^ w.mult < 1 := fun w =>
+     pow_lt_one₀ (by positivity) (hc w) InfinitePlace.mult_pos.ne'
+   have hle : ∏ w ∈ Finset.univ.erase w0, w (x : L) ^ w.mult ≤ 1 :=
+-    Finset.prod_le_one (fun w _ => hf w) (fun w _ => (hlt w).le)
++    Finset.prod_le_one₀ (fun w _ => hf w) (fun w _ => (hlt w).le)
+   have : ∏ w : InfinitePlace L, w (x : L) ^ w.mult < 1 := by
+     rw [← Finset.mul_prod_erase _ _ (Finset.mem_univ w0)]
+     calc w0 (x : L) ^ w0.mult * ∏ w ∈ Finset.univ.erase w0, w (x : L) ^ w.mult

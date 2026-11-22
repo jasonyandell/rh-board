@@ -1,0 +1,20 @@
+--- a/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TailIntegrals/IntegrableUnitIndicator.lean
++++ b/src/ReciprocityTheory/ReductiveGroups/DiscreteSeries/TailIntegrals/IntegrableUnitIndicator.lean
+@@ -333,7 +333,7 @@
+         | (field_simp; done)
+         | (field_simp; ring)
+     _ ≤ ∏ i ∈ Finset.univ.erase q, gF p q (s / k) i (x i) := by
+-        apply Finset.prod_le_prod
++        apply Finset.prod_le_prod₀
+         · intro i _
+           exact Real.rpow_nonneg hu.le _
+         · intro i hi
+@@ -342,7 +342,7 @@
+ lemma measurableSet_Bset (q : ι) : MeasurableSet (Bset q) := by
+   have hc : Continuous (tW q) := by
+     unfold tW
+-    refine Real.continuous_sqrt.comp (continuous_finset_sum _ fun i _ => ?_)
++    refine Real.continuous_sqrt.comp (continuous_finsetSum _ fun i _ => ?_)
+     by_cases h : i = q
+     · simp only [h, if_true]
+       exact continuous_const

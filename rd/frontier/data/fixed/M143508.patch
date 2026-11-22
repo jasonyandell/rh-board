@@ -1,0 +1,20 @@
+--- a/src/Development/WeilBound/ThetaLifts/LeviDeterminants/LagrangianUniqueness/Imports.lean
++++ b/src/Development/WeilBound/ThetaLifts/LeviDeterminants/LagrangianUniqueness/Imports.lean
+@@ -19,7 +19,7 @@
+       exact (if_pos hz).trans (if_pos hx).symm
+     · filter_upwards [hc.isClosed.isOpen_compl.mem_nhds hx] with z hz
+       exact (if_neg hz).trans (if_neg hx).symm
+-  · refine HasCompactSupport.intro (h₀.image (continuous_add_right a)) fun y hy => if_neg fun h => hy ?_
++  · refine HasCompactSupport.intro (h₀.image (continuous_add_const a)) fun y hy => if_neg fun h => hy ?_
+     exact ⟨y - a, hU h, sub_add_cancel y a⟩
+ 
+ theorem uniform {φ : G → ℂ} (hφ : φ ∈ SB G) : ∃ U : OpenAddSubgroup G, ∀ u ∈ U, ∀ x, φ (x + u) = φ x := by
+@@ -75,7 +75,7 @@
+     by_cases ha : a ∈ P
+     · exact ⟨⊤, fun h => absurd ha h⟩
+     have : ∀ᶠ u in 𝓝 (0 : G), χ a (a + u) = χ a a := by
+-      simpa using (((hχ a ha).comp_continuous (continuous_add_left a)).eventually_eq 0)
++      simpa using (((hχ a ha).comp_continuous (continuous_const_add a)).eventually_eq 0)
+     obtain ⟨V, hV⟩ := NonarchimedeanAddGroup.is_nonarchimedean _ this
+     exact ⟨V, fun _ u hu => hV hu⟩
+   choose V hV using hV

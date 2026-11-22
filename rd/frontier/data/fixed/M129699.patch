@@ -1,0 +1,11 @@
+--- a/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/BtOrderEqTopOfEtale.lean
++++ b/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/BtOrderEqTopOfEtale.lean
+@@ -51,7 +51,7 @@
+   obtain ⟨h1, h2⟩ := stalk_spec_normal (R := R) (Γ.G.hom g)
+   have hdom : IsDomain (Γ.G.left.presheaf.stalk g) :=
+     (GlobalTheory.isDomain_and_isIntegrallyClosed_stalk_of_smooth Γ.G.hom g).1
+-  let e₀ : Spec (Γ.G.left.presheaf.stalk g) := (⟨⊥, Ideal.bot_prime⟩ : PrimeSpectrum _)
++  let e₀ : Spec (Γ.G.left.presheaf.stalk g) := (⟨⊥, Ideal.isPrime_bot⟩ : PrimeSpectrum _)
+   have key : ∀ u : T, (Γ.pt u).left x ⤳ g → Γ.G.left.fromSpecStalk g e₀ = (Γ.pt u).left x := by
+     intro u hu
+     have hr : (Γ.pt u).left x ∈ Set.range (Γ.G.left.fromSpecStalk g) := by

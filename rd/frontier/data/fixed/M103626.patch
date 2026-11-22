@@ -1,0 +1,20 @@
+--- a/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/SelmerTransport/DenseGen.lean
++++ b/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/SelmerTransport/DenseGen.lean
+@@ -157,7 +157,7 @@
+   · intro x
+     refine (denseGen l).induction_on
+       (p := fun x => C (Multiplicative.ofAdd 1 * x) = σ (Multiplicative.ofAdd 1) (C x) - φ x) x ?_ ?_
+-    · exact (clopenEq (hCc.comp (continuous_mul_left _))
++    · exact (clopenEq (hCc.comp (continuous_const_mul _))
+         ((continuous_of_discreteTopology
+           (f := fun pr : N × N => σ (Multiplicative.ofAdd 1) pr.1 - pr.2)).comp
+           (hCc.prodMk hφ))).isClosed
+@@ -194,7 +194,7 @@
+   refine (denseGen l).induction_on (p := fun g => σ g (C h) - C (g * h) + C g = f.1 (g, h)) g ?_ ?_
+   · exact (clopenEq
+       (((hσ'.comp (continuous_id.prodMk continuous_const)).sub
+-        (hC.comp (continuous_mul_right h))).add hC)
++        (hC.comp (continuous_mul_const h))).add hC)
+       (hf.comp (continuous_id.prodMk continuous_const))).isClosed
+   · intro n
+     induction n with

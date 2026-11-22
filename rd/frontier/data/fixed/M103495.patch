@@ -1,0 +1,11 @@
+--- a/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SinLem.lean
++++ b/src/Development/AutomorphicArithmetic/AutomorphicVarieties/GaloisLibrary/FerreroWashingtonIndex/SinLem.lean
+@@ -43,7 +43,7 @@
+       · exact absurd h hN
+     have hcoef := congrArg (fun f : AddMonoidAlgebra k (A ⧸ H) => f.coeff (s • φ (η i0))) hF
+     simp only [AddMonoidAlgebra.coeff_sum, AddMonoidAlgebra.coeff_single, AddMonoidAlgebra.coeff_zero,
+-      Finsupp.finset_sum_apply, Finsupp.coe_zero, Pi.zero_apply] at hcoef
++      Finsupp.finsetSum_apply, Finsupp.coe_zero, Pi.zero_apply] at hcoef
+     rw [Finset.sum_eq_single s] at hcoef
+     · simpa using hcoef
+     · intro t ht hts

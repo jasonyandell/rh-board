@@ -1,0 +1,11 @@
+--- a/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/FockRaisingLowering/BlockDiagonalPreservesDegree.lean
++++ b/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/FockRaisingLowering/BlockDiagonalPreservesDegree.lean
+@@ -95,7 +95,7 @@
+        · exact (h.coeff_eq_zero hd).symm
+      · rw [if_neg hmn]
+        ext d
+-       rw [coeff_homogeneousComponent, coeff_zero]
++       rw [coeff_homogeneousComponent, AddMonoidAlgebra.coeff_zero]
+        split_ifs with hd
+        · exact h.coeff_eq_zero (by omega)
+        · rfl)

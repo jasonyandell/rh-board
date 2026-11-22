@@ -1,0 +1,11 @@
+--- a/src/ReciprocityTheory/ReducedBases/PrefixProdGeOne.lean
++++ b/src/ReciprocityTheory/ReducedBases/PrefixProdGeOne.lean
+@@ -112,7 +112,7 @@
+     _ = ∏ j ∈ S, m * ‖gs (fun i => fB 1 (e i)) j‖ ^ 2 := by
+         rw [Finset.prod_mul_distrib, Finset.prod_const]
+     _ ≤ ∏ j ∈ S, ‖gs (fun i => fB B (e i)) j‖ ^ 2 :=
+-        Finset.prod_le_prod (fun j _ => by positivity) (fun j _ => hterm j)
++        Finset.prod_le_prod₀ (fun j _ => by positivity) (fun j _ => hterm j)
+ 
+ end ReciprocityTheory.ReducedBases.T2
+ 

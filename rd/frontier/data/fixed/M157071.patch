@@ -1,0 +1,13 @@
+--- a/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/TensorOperator/StepMonoFactor.lean
++++ b/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/TensorOperator/StepMonoFactor.lean
+@@ -14,8 +14,8 @@
+   suffices hμ : μ = ∑ t, Finsupp.mapDomain (fun c => (t, c)) (partS μ t) by
+     rw [← MvPolynomial.monomial_sum_one, ← hμ]
+   ext ⟨t, c⟩
+-  rw [Finsupp.finset_sum_apply, Finset.sum_eq_single t]
+-  · rw [Finsupp.mapDomain_apply (fun a b h => by simpa using h)]
++  rw [Finsupp.finsetSum_apply, Finset.sum_eq_single t]
++  · rw [Finsupp.mapDomain_apply_of_injective (fun a b h => by simpa using h)]
+     simp [partS]
+   · intro t' _ ht'
+     rw [Finsupp.mapDomain_notin_range]

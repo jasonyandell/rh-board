@@ -1,0 +1,11 @@
+--- a/src/PositivityTheory/AutomorphicForms/PublishedInputs/JacquetLanglands/TorusKernels/UnipotentIntegrandVanishesProof.lean
++++ b/src/PositivityTheory/AutomorphicForms/PublishedInputs/JacquetLanglands/TorusKernels/UnipotentIntegrandVanishesProof.lean
+@@ -162,7 +162,7 @@
+       rw [ht_def, Real.log_exp]
+       field_simp
+     have hS' : MeasurableSet ((large₂ (I := I)) ⁻¹' S) := measurable_Lg hS
+-    have hadd : Measurable (fun x : ℝ => c + x) := (continuous_add_left c).measurable
++    have hadd : Measurable (fun x : ℝ => c + x) := (continuous_const_add c).measurable
+     have hpre : (large₂ (I := I)) ⁻¹' ((fun x => c + x) ⁻¹' S) =
+         (fun y : I → Y1 => fun v => scl t ht.ne' (y v)) ⁻¹' ((large₂ (I := I)) ⁻¹' S) := by
+       ext y

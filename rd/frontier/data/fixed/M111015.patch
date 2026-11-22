@@ -1,0 +1,11 @@
+--- a/src/Development/AutomorphicArithmetic/Foundations/Convolution/PolynomialCoefficientBounds/Reduce.lean
++++ b/src/Development/AutomorphicArithmetic/Foundations/Convolution/PolynomialCoefficientBounds/Reduce.lean
+@@ -96,7 +96,7 @@
+   have h := congrArg (Polynomial.eval (-(X j : MvPolynomial (Fin n) ℂ)))
+     (MvPolynomial.prod_C_add_X_eq_sum_esymm ℂ (Fin n))
+   rw [Polynomial.eval_prod, Finset.prod_eq_zero (Finset.mem_univ j) (by simp),
+-    Polynomial.eval_finset_sum, Fintype.card_fin, Finset.sum_range_succ',
++    Polynomial.eval_finsetSum, Fintype.card_fin, Finset.sum_range_succ',
+     Finset.sum_range] at h
+   simp only [Polynomial.eval_mul, Polynomial.eval_C, Polynomial.eval_pow, Polynomial.eval_X,
+     esymm_zero, one_mul, Nat.sub_zero] at h

@@ -1,0 +1,11 @@
+--- a/src/Lemmata/DetMonotoneStarMulSelf/OneLeReDetOneAdd.lean
++++ b/src/Lemmata/DetMonotoneStarMulSelf/OneLeReDetOneAdd.lean
+@@ -25,7 +25,7 @@
+     rw [← Complex.ofReal_prod, Complex.ofReal_re]
+   refine le_of_le_of_eq ?_ hp.symm
+   calc (1 : ℝ) = ∏ _i : Fin n, (1 : ℝ) := by simp
+-    _ ≤ ∏ i, hH.eigenvalues i := Finset.prod_le_prod (fun _ _ => zero_le_one) (fun i _ => key i)
++    _ ≤ ∏ i, hH.eigenvalues i := Finset.prod_le_prod₀ (fun _ _ => zero_le_one) (fun i _ => key i)
+ 
+ open Matrix in
+ open scoped ComplexOrder in

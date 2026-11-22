@@ -1,0 +1,25 @@
+--- a/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerVolume/UnfoldAbsAlt.lean
++++ b/src/Formalism/PeriodIntegrals/UnitaryGroupMassFormula/StabilizerVolume/UnfoldAbsAlt.lean
+@@ -41,11 +41,11 @@
+   obtain ⟨F0, hF0sub, hF0m, hF0ae⟩ := h𝓕.nullMeasurableSet.exists_measurable_subset_ae_eq
+   have hc0m : Measurable (cntN Γ F0) := by
+     unfold cntN
+-    exact Measurable.ennreal_tsum fun γ =>
++    exact Measurable.tsum fun γ =>
+       (measurable_const.indicator hF0m).comp (measurable_const_mul (γ : G))
+   have hcfm : Measurable (cfun Γ F0 y0) := by
+     unfold cfun
+-    exact Measurable.ennreal_tsum fun x =>
++    exact Measurable.tsum fun x =>
+       (measurable_const.indicator hF0m).comp ((measurable_const_mul _).comp measurable_inv)
+   have hc0i : ∀ γ ∈ Γ, ∀ g : G, cntN Γ F0 (γ * g) = cntN Γ F0 g := by
+     intro γ hγ g
+@@ -78,7 +78,7 @@
+       rw [ae_iff]
+       refine measure_mono_null ?_ h0
+       intro g hg
+-      simp only [Set.mem_setOf_eq, _root_.not_imp, not_not] at hg
++      simp only [Set.mem_setOf_eq, not_imp, not_not] at hg
+       obtain ⟨-, h1, h2⟩ := hg
+       constructor
+       · rw [Set.mem_smul_set_iff_inv_smul_mem, inv_inv]

@@ -1,0 +1,20 @@
+--- a/src/Development/AbelianVarietyTheory/Proofs/HeightProofs/AnisotropicFiniteLengthsOfShortLatticeVector.lean
++++ b/src/Development/AbelianVarietyTheory/Proofs/HeightProofs/AnisotropicFiniteLengthsOfShortLatticeVector.lean
+@@ -35,7 +35,7 @@
+ theorem absNorm_le (a : 𝓞 E) :
+     (Ideal.absNorm (Ideal.span {a}) : ℝ) ≤ house (algebraMap (𝓞 E) E a) ^ finrank ℚ E := by
+   rw [absNorm_eq, ← Embeddings.card E ℂ, ← Finset.card_univ, ← Finset.prod_const]
+-  exact Finset.prod_le_prod (fun _ _ => norm_nonneg _) fun φ _ => norm_le_house φ _
++  exact Finset.prod_le_prod₀ (fun _ _ => norm_nonneg _) fun φ _ => norm_le_house φ _
+ 
+ theorem house_inv_le {a : E} (ha : IsIntegral ℤ a) (h0 : a ≠ 0) {T : ℝ} (hT : 1 ≤ T)
+     (h : house a ≤ T) : house a⁻¹ ≤ T ^ finrank ℚ E := by
+@@ -50,7 +50,7 @@
+   rw [absNorm_eq, ← Finset.mul_prod_erase _ _ (Finset.mem_univ φ)] at h1
+   have h2 : ∏ ψ ∈ Finset.univ.erase φ, ‖ψ (algebraMap (𝓞 E) E a')‖ ≤ T ^ finrank ℚ E := by
+     calc _ ≤ ∏ _ψ ∈ Finset.univ.erase φ, T :=
+-          Finset.prod_le_prod (fun _ _ => norm_nonneg _) fun ψ _ => (norm_le_house ψ _).trans h
++          Finset.prod_le_prod₀ (fun _ _ => norm_nonneg _) fun ψ _ => (norm_le_house ψ _).trans h
+       _ ≤ _ := by
+           rw [Finset.prod_const, ← Embeddings.card E ℂ]
+           exact pow_le_pow_right₀ hT (Finset.card_le_univ _)

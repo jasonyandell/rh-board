@@ -1,0 +1,11 @@
+--- a/src/Formalism/SatakeDualWeyl/AdelicIwasawaHecke/Stdform.lean
++++ b/src/Formalism/SatakeDualWeyl/AdelicIwasawaHecke/Stdform.lean
+@@ -19,7 +19,7 @@
+ 
+ theorem stdform_continuous_Q (M : Matrix n n ℂ) : Continuous (stdformQ M) := by
+   unfold stdformQ
+-  exact Complex.continuous_re.comp (continuous_finset_sum _ fun i _ => continuous_finset_sum _ fun j _ =>
++  exact Complex.continuous_re.comp (continuous_finsetSum _ fun i _ => continuous_finsetSum _ fun j _ =>
+     ((Complex.continuous_conj.comp (continuous_apply i)).mul continuous_const).mul (continuous_apply j))
+ 
+ theorem stdform_Q_dot (M : Matrix n n ℂ) (y : n → ℂ) :

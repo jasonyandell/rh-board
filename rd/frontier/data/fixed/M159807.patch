@@ -1,0 +1,11 @@
+--- a/src/Formalism/SharpRestriction/GrowthBounds/MonomialOrderSegments/MemPolKIff.lean
++++ b/src/Formalism/SharpRestriction/GrowthBounds/MonomialOrderSegments/MemPolKIff.lean
+@@ -55,7 +55,7 @@
+     split_ifs with h
+     · rw [h]
+     · simp
+-  | add p q hp hq => rw [map_add, coeff_add, coeff_add, hp, hq, mul_add]
++  | add p q hp hq => rw [map_add, MvPolynomial.coeff_add, MvPolynomial.coeff_add, hp, hq, mul_add]
+ 
+ theorem mem_PolK_iff {L : Type} {r : ℕ} (d : L → ℕ) (F : MvPolynomial (L × Fin r) K) :
+     F ∈ PolK K r d ↔ ∀ α ∈ F.support, ∀ i, ldeg α i = d i := by

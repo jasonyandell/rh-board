@@ -1,0 +1,11 @@
+--- a/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsIrreducibleEquivariantProjection.lean
++++ b/src/Development/AbelianVarietyTheory/Proofs/FoundationProofs/ExistsIrreducibleEquivariantProjection.lean
+@@ -33,7 +33,7 @@
+         calc ρ h w = ρ (i : H) (ρ (i : H)⁻¹ (ρ h w)) := (rho_rho_inv ρ _ _).symm
+           _ = ρ (i : H) w := by rw [e]
+     rw [e]
+-    exact (hsm w).preimage (continuous_mul_left _)
++    exact (hsm w).preimage (continuous_const_mul _)
+   obtain ⟨t, ht⟩ := hK.elim_finite_subcover (fun i : K => {h : H | ρ h w = ρ (i : H) w}) hopen
+     (fun h hh => Set.mem_iUnion.2 ⟨⟨h, hh⟩, rfl⟩)
+   refine (t.finite_toSet.image (fun i : K => ρ (i : H) w)).subset ?_

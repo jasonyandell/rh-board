@@ -1,0 +1,11 @@
+--- a/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/MinpolyProductMap.lean
++++ b/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/MinpolyProductMap.lean
+@@ -72,7 +72,7 @@
+       Polynomial.lifts (algebraMap (ValuativeRel.valuation K).integer K) := by
+     rw [Polynomial.lifts_iff_coeff_lifts]
+     intro n
+-    have h4 := congrArg (fun p => Polynomial.coeff p n) hprod
++    have h4 := congrArg (fun p => AddMonoidAlgebra.coeff p n) hprod
+     simp only [Polynomial.coeff_map] at h4
+     have h5 : algebraMap K L ((minpoly K (x : L)).coeff n) ∈ (ValuativeRel.valuation L).integer := by
+       rw [← h4]
